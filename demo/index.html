@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <title>tc-angular-chartjs demo</title>
+</head>
+<body ng-app="app">
+
+<div class="container">
+  <h1>tc-angular-chartjs demo</h1>
+  <hr>
+
+<!-- Line --------------------------------------------------------------------->
+
+  <div ng-controller="LineCtrl">
+    <h2>Line Chart</h2>
+    <div class="row">
+      <div class="col-lg-4">
+        <canvas tc-chartjs type="line" options="options" data="data" width="350" height="350"></canvas>
+      </div>
+      <div class="col-lg-8">
+        <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
+<pre>
+&lt;canvas tc-chartjs type="line" data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+</pre>
+        <h4>Using <span class="label label-primary">tc-chartjs-line</span> directive</h4>
+<pre>
+&lt;canvas tc-chartjs-line data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+</pre>
+        <h4>$scope</h4>
+<pre>
+$scope.data = {
+  labels : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul' ],
+  datasets : [
+    {
+      fillColor : 'rgba(220,220,220,0.5)',
+      strokeColor : 'rgba(220,220,220,1)',
+      pointColor : 'rgba(220,220,220,1)',
+      pointStrokeColor : '#fff',
+      data : [ 65, 59, 90, 81, 56, 55, 40]
+    },
+    {
+      fillColor : 'rgba(151,187,205,0.5)',
+      strokeColor : 'rgba(151,187,205,1)',
+      pointColor : 'rgba(151,187,205,1)',
+      pointStrokeColor : '#fff',
+      data : [ 28, 48, 40, 19, 96, 27, 100]
+    }
+  ]
+};
+
+$scope.options =  {
+  // Chart.js options can go here.
+};
+</pre>
+      </div>
+    </div>
+  </div>
+
+<!-- Bar ---------------------------------------------------------------------->
+
+  <div ng-controller="BarCtrl">
+    <h2>Bar Chart</h2>
+    <div class="row">
+      <div class="col-lg-4">
+        <canvas tc-chartjs type="bar" options="options" data="data" width="350" height="350"></canvas>
+      </div>
+      <div class="col-lg-8">
+        <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
+<pre>
+&lt;canvas tc-chartjs type="bar" data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+</pre>
+        <h4>Using <span class="label label-primary">tc-chartjs-bar</span> directive</h4>
+<pre>
+&lt;canvas tc-chartjs-bar data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+</pre>
+        <h4>$scope</h4>
+<pre>
+$scope.data = {
+  labels : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul' ],
+  datasets : [
+    {
+      fillColor : 'rgba(220,220,220,0.5)',
+      strokeColor : 'rgba(220,220,220,1)',
+      data : [ 65, 59, 90, 81, 56, 55, 40 ]
+    },
+    {
+      fillColor : 'rgba(151,187,205,0.5)',
+      strokeColor : 'rgba(151,187,205,1)',
+      data : [ 28, 48, 40, 19, 96, 27, 100 ]
+    }
+  ]
+};
+
+$scope.options =  {
+  // Chart.js options can go here.
+};
+</pre>
+      </div>
+    </div>
+  </div>
+
+<!-- Radar -------------------------------------------------------------------->
+
+  <div ng-controller="RadarCtrl">
+    <h2>Radar Chart</h2>
+    <div class="row">
+      <div class="col-lg-4">
+        <canvas tc-chartjs type="radar" options="options" data="data" width="350" height="350"></canvas>
+      </div>
+      <div class="col-lg-8">
+        <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
+<pre>
+&lt;canvas tc-chartjs type="radar" data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+</pre>
+        <h4>Using <span class="label label-primary">tc-chartjs-radar</span> directive</h4>
+<pre>
+&lt;canvas tc-chartjs-radar data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+</pre>
+        <h4>$scope</h4>
+<pre>
+$scope.data = {
+  labels : [ 'Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Partying', 'Running' ],
+  datasets : [
+    {
+      fillColor : 'rgba(220,220,220,0.5)',
+      strokeColor : 'rgba(220,220,220,1)',
+      pointColor : 'rgba(220,220,220,1)',
+      pointStrokeColor : '#fff',
+      data : [ 65, 59, 90, 81, 56, 55, 40]
+    },
+    {
+      fillColor : 'rgba(151,187,205,0.5)',
+      strokeColor : 'rgba(151,187,205,1)',
+      pointColor : 'rgba(151,187,205,1)',
+      pointStrokeColor : '#fff',
+      data : [ 28, 48, 40, 19, 96, 27, 100 ]
+    }
+  ]
+};
+
+$scope.options =  {
+  // Chart.js options can go here.
+};
+</pre>
+      </div>
+    </div>
+  </div>
+
+<!-- Polararea ---------------------------------------------------------------->
+
+  <div ng-controller="PolarareaCtrl">
+    <h2>Polar Area Chart</h2>
+    <div class="row">
+      <div class="col-lg-4">
+        <canvas tc-chartjs type="polararea" options="options" data="data" width="350" height="350"></canvas>
+      </div>
+      <div class="col-lg-8">
+        <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
+<pre>
+&lt;canvas tc-chartjs type="polararea" data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+</pre>
+        <h4>Using <span class="label label-primary">tc-chartjs-polararea</span> directive</h4>
+<pre>
+&lt;canvas tc-chartjs-polararea data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+</pre>
+        <h4>$scope</h4>
+<pre>
+$scope.data = [
+  { value : 30, color: "#D97041" },
+  { value : 90, color: "#C7604C" },
+  { value : 24, color: "#21323D" },
+  { value : 58, color: "#9D9B7F" },
+  { value : 82, color: "#7D4F6D" },
+  { value : 8, color: "#584A5E" }
+];
+
+$scope.options =  {
+  // Chart.js options can go here.
+};
+</pre>
+      </div>
+    </div>
+  </div>
+
+<!-- Pie ---------------------------------------------------------------------->
+
+  <div ng-controller="PieCtrl">
+    <h2>Pie Chart</h2>
+    <div class="row">
+      <div class="col-lg-4">
+        <canvas tc-chartjs type="pie" options="options" data="data" width="350" height="350"></canvas>
+      </div>
+      <div class="col-lg-8">
+        <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
+<pre>
+&lt;canvas tc-chartjs type="pie" data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+</pre>
+        <h4>Using <span class="label label-primary">tc-chartjs-pie</span> directive</h4>
+<pre>
+&lt;canvas tc-chartjs-pie data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+</pre>
+        <h4>$scope</h4>
+<pre>
+$scope.data = [
+  { value: 30, color:'#F38630' },
+  { value : 50, color : '#E0E4CC' },
+  { value : 100, color : '#69D2E7' }
+];
+
+$scope.options =  {
+  // Chart.js options can go here.
+};
+</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Doughnut ----------------------------------------------------------------->
+
+  <div ng-controller="DoughnutCtrl">
+    <h2>Doughnut Chart</h2>
+    <div class="row">
+      <div class="col-lg-4">
+        <canvas tc-chartjs type="doughnut" options="options" data="data" width="350" height="350"></canvas>
+      </div>
+      <div class="col-lg-8">
+        <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
+<pre>
+&lt;canvas tc-chartjs type="doughnut" data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+</pre>
+        <h4>Using <span class="label label-primary">tc-chartjs-doughnut</span> directive</h4>
+<pre>
+&lt;canvas tc-chartjs-doughnut data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+</pre>
+        <h4>$scope</h4>
+<pre>
+$scope.data = [
+  { value : 50, color : "#F7464A" },
+  { value : 90, color : "#E2EAE9" },
+  { value : 75, color : "#D4CCC5" },
+  { value : 30, color : "#949FB1"}
+];
+
+$scope.options =  {
+  // Chart.js options can go here.
+};
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<!-- Scripts ------------------------------------------------------------------>
+<script type="text/javascript" src="js/vendors/angular.js"></script>
+<script type="text/javascript" src="js/vendors/angular-route.js"></script>
+<script type="text/javascript" src="js/vendors/angular-ui-bootstrap.js"></script>
+<script type="text/javascript" src="js/vendors/Chart.js"></script>
+<script type="text/javascript" src="../src/tc-angular-chartjs.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/line.js"></script>
+<script type="text/javascript" src="js/bar.js"></script>
+<script type="text/javascript" src="js/radar.js"></script>
+<script type="text/javascript" src="js/polararea.js"></script>
+<script type="text/javascript" src="js/pie.js"></script>
+<script type="text/javascript" src="js/doughnut.js"></script>
+</body>
+</html>
