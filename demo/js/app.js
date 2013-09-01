@@ -1,5 +1,4 @@
 angular.module( 'app', [
-  'ui.bootstrap',
   'tc.chartjs',
   'app.line',
   'app.bar',

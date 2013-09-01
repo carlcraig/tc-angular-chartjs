@@ -14,6 +14,26 @@ tc-angular-chartjs provides you with directives for all chartjs chart types.
 
 You can see all the [Chart.js Documentation]() on their website.
 
+### Installation
+
+Grab the latest version of `Chart.js` and `tc-angular-chartjs`.
+
+Load `Chart.js` and `tc-angular-chartjs` as you would with normal scripts.
+
+```html
+<script type="text/javascript" src="js/Chart.js"></script>
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript" src="js/tc-angular-chartjs.js"></script>
+```
+
+Require `tc.chartjs` in your application modules where you require `Chart.js`.
+
+```javascript
+angular.module( 'app', [
+  'tc.chartjs'
+]);
+``
+
 ### Basic Usage
 
 There are 6 different directives.
