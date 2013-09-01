@@ -12,7 +12,7 @@ tc-angular-chartjs provides you with directives for all chartjs chart types.
 - Pie Charts
 - Doughnut Charts
 
-You can see all the [Chart.js Documentation]() on their website.
+You can see all the [Chart.js Documentation](http://www.chartjs.org/docs/) on their website.
 
 ### Installation
 
