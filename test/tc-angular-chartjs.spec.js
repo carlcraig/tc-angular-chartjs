@@ -10,46 +10,46 @@ describe('tc-chartjs directive', function() {
 
   it('tc-chartjs directive should call Chart.js when compiled', function () {
     spyOn(window, 'Chart');
-    element = $compile('<canvas tc-chartjs width="300" height="300"></canvas>')($scope)
+    element = $compile('<canvas tc-chartjs width="300" height="300"></canvas>')($scope);
     $scope.$digest();
     expect(Chart).toHaveBeenCalled();
   });
 
   it('tc-chartjs-line directive should call Chart.js when compiled', function () {
     spyOn(window, 'Chart');
-    element = $compile('<canvas tc-chartjs-line width="300" height="300"></canvas>')($scope)
+    element = $compile('<canvas tc-chartjs-line width="300" height="300"></canvas>')($scope);
     $scope.$digest();
     expect(Chart).toHaveBeenCalled();
   });
 
   it('tc-chartjs-bar directive should call Chart.js when compiled', function () {
     spyOn(window, 'Chart');
-    element = $compile('<canvas tc-chartjs-bar width="300" height="300"></canvas>')($scope)
+    element = $compile('<canvas tc-chartjs-bar width="300" height="300"></canvas>')($scope);
     $scope.$digest();
     expect(Chart).toHaveBeenCalled();
   });
 
   it('tc-chartjs-radar directive should call Chart.js when compiled', function () {
     spyOn(window, 'Chart');
-    element = $compile('<canvas tc-chartjs-radar width="300" height="300"></canvas>')($scope)
+    element = $compile('<canvas tc-chartjs-radar width="300" height="300"></canvas>')($scope);
     $scope.$digest();
     expect(Chart).toHaveBeenCalled();
   });
   it('tc-chartjs-polararea directive should call Chart.js when compiled', function () {
     spyOn(window, 'Chart');
-    element = $compile('<canvas tc-chartjs-polararea width="300" height="300"></canvas>')($scope)
+    element = $compile('<canvas tc-chartjs-polararea width="300" height="300"></canvas>')($scope);
     $scope.$digest();
     expect(Chart).toHaveBeenCalled();
   });
   it('tc-chartjs-pie directive should call Chart.js when compiled', function () {
     spyOn(window, 'Chart');
-    element = $compile('<canvas tc-chartjs-pie width="300" height="300"></canvas>')($scope)
+    element = $compile('<canvas tc-chartjs-pie width="300" height="300"></canvas>')($scope);
     $scope.$digest();
     expect(Chart).toHaveBeenCalled();
   });
   it('tc-chartjs-doughnut directive should call Chart.js when compiled', function () {
     spyOn(window, 'Chart');
-    element = $compile('<canvas tc-chartjs-doughnut width="300" height="300"></canvas>')($scope)
+    element = $compile('<canvas tc-chartjs-doughnut width="300" height="300"></canvas>')($scope);
     $scope.$digest();
     expect(Chart).toHaveBeenCalled();
   });

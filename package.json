@@ -2,8 +2,8 @@
   "name": "tc-angular-chartjs",
   "version": "0.0.1",
   "description": "Add Chart.js charts to your angular application",
-  "author": "Carl Craig",
-  "license": "MIT",
+  "author": "Threecee Studios",
+  "license": "MIT and APACHE2",
   "homepage": "https://github.com/ThreeceeStudios/tc-angular-chartjs",
   "dependencies": {},
   "devDependencies": {

@@ -1,8 +1,22 @@
 /**
- * tc-angular-chartjs - v0.0.1 - 2013-08-31
- * Copyright (c) 2013 Carl Craig
+ * tc-angular-chartjs - v0.0.1 - 2013-09-01
+ * Copyright (c) 2013 Threecee Studios
  */
-angular.module("tc.chartjs", []).factory("tc.chartjs.directive", function() {
+angular.module("tc.chartjs", []).directive("tcChartjs", [ "TcChartjsFactory", function(TcChartjsFactory) {
+    return new TcChartjsFactory();
+} ]).directive("tcChartjsLine", [ "TcChartjsFactory", function(TcChartjsFactory) {
+    return new TcChartjsFactory("line");
+} ]).directive("tcChartjsBar", [ "TcChartjsFactory", function(TcChartjsFactory) {
+    return new TcChartjsFactory("bar");
+} ]).directive("tcChartjsRadar", [ "TcChartjsFactory", function(TcChartjsFactory) {
+    return new TcChartjsFactory("radar");
+} ]).directive("tcChartjsPolararea", [ "TcChartjsFactory", function(TcChartjsFactory) {
+    return new TcChartjsFactory("polararea");
+} ]).directive("tcChartjsPie", [ "TcChartjsFactory", function(TcChartjsFactory) {
+    return new TcChartjsFactory("pie");
+} ]).directive("tcChartjsDoughnut", [ "TcChartjsFactory", function(TcChartjsFactory) {
+    return new TcChartjsFactory("doughnut");
+} ]).factory("TcChartjsFactory", function() {
     return function(chartType) {
         return {
             restrict: "A",
@@ -24,9 +38,9 @@ angular.module("tc.chartjs", []).factory("tc.chartjs.directive", function() {
                         }
                     }
                 }, true);
-                function cleanChartName(chartType) {
-                    chartType = chartType.toLowerCase();
-                    switch (chartType) {
+                function cleanChartName(type) {
+                    type = type.toLowerCase();
+                    switch (type) {
                       case "line":
                         return "Line";
 
@@ -52,18 +66,4 @@ angular.module("tc.chartjs", []).factory("tc.chartjs.directive", function() {
             }
         };
     };
-}).directive("tcChartjs", [ "tc.chartjs.directive", function(Chart) {
-    return new Chart();
-} ]).directive("tcChartjsLine", [ "tc.chartjs.directive", function(Chart) {
-    return new Chart("line");
-} ]).directive("tcChartjsBar", [ "tc.chartjs.directive", function(Chart) {
-    return new Chart("bar");
-} ]).directive("tcChartjsRadar", [ "tc.chartjs.directive", function(Chart) {
-    return new Chart("radar");
-} ]).directive("tcChartjsPolararea", [ "tc.chartjs.directive", function(Chart) {
-    return new Chart("polararea");
-} ]).directive("tcChartjsPie", [ "tc.chartjs.directive", function(Chart) {
-    return new Chart("pie");
-} ]).directive("tcChartjsDoughnut", [ "tc.chartjs.directive", function(Chart) {
-    return new Chart("doughnut");
-} ]);
+});

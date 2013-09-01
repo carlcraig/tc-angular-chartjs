@@ -1,26 +1,26 @@
 angular.module( 'tc.chartjs', [])
-  .directive( 'tcChartjs', function( $tcChartjsFactory ) {
-    return new $tcChartjsFactory();
+  .directive( 'tcChartjs', function( TcChartjsFactory ) {
+    return new TcChartjsFactory();
   })
-  .directive( 'tcChartjsLine', function( $tcChartjsFactory ) {
-    return new $tcChartjsFactory( 'line' );
+  .directive( 'tcChartjsLine', function( TcChartjsFactory ) {
+    return new TcChartjsFactory( 'line' );
   })
-  .directive( 'tcChartjsBar', function( $tcChartjsFactory ) {
-    return new $tcChartjsFactory( 'bar' );
+  .directive( 'tcChartjsBar', function( TcChartjsFactory ) {
+    return new TcChartjsFactory( 'bar' );
   })
-  .directive( 'tcChartjsRadar', function( $tcChartjsFactory ) {
-    return new $tcChartjsFactory( 'radar' );
+  .directive( 'tcChartjsRadar', function( TcChartjsFactory ) {
+    return new TcChartjsFactory( 'radar' );
   })
-  .directive( 'tcChartjsPolararea', function( $tcChartjsFactory ) {
-    return new $tcChartjsFactory( 'polararea' );
+  .directive( 'tcChartjsPolararea', function( TcChartjsFactory ) {
+    return new TcChartjsFactory( 'polararea' );
   })
-  .directive( 'tcChartjsPie', function( $tcChartjsFactory ) {
-    return new $tcChartjsFactory( 'pie' );
+  .directive( 'tcChartjsPie', function( TcChartjsFactory ) {
+    return new TcChartjsFactory( 'pie' );
   })
-  .directive( 'tcChartjsDoughnut', function( $tcChartjsFactory ) {
-    return new $tcChartjsFactory( 'doughnut' );
+  .directive( 'tcChartjsDoughnut', function( TcChartjsFactory ) {
+    return new TcChartjsFactory( 'doughnut' );
   })
-  .factory( '$tcChartjsFactory', function() {
+  .factory( 'TcChartjsFactory', function() {
     return function( chartType ) {
       return {
         restrict: 'A',
