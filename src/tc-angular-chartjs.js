@@ -25,10 +25,10 @@ angular.module( 'tc.chartjs', [])
       return {
         restrict: 'A',
         scope: {
-          data: '=',
-          options: '=',
+          data: '=chartData',
+          options: '=chartOptions',
           id: '@',
-          type: '@'
+          type: '@chartType'
         },
         link: function ( $scope, $elem ) {
           var ctx = $elem[0].getContext('2d');

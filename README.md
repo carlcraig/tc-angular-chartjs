@@ -51,10 +51,10 @@ Just place one of these directives on a `canvas` element to create a Chart.js ch
 ```
 
 You will also want to give the chart some `data` and `options`. These can be provided
-by assigning $scope variables to `options` and `data` attributes on the same canvas element.
+by assigning $scope variables to `chart-options` and `chart-data` attributes on the same canvas element.
 
 ```html
-<canvas tc-chartjs-doughnut data="myData" options="myOptions" width="350" height="350"></canvas>
+<canvas tc-chartjs-doughnut chart-data="myData" chart-options="myOptions" width="350" height="350"></canvas>
 ```
 ```javascript
 $scope.myData = [
@@ -74,10 +74,10 @@ $scope.myOptions =  {
 When using the `tc-chartjs` directive you will need to add an additional attribute to
 say which type of chart should be created.
 
-Just attach a `type=""` attribute to the canvas element.
+Just attach a `chart-type=""` attribute to the canvas element.
 
 ```html
-<canvas tc-chartjs type="doughnut" data="data" options="options" width="350" height="350"></canvas>
+<canvas tc-chartjs chart-type="doughnut" chart-data="data" chart-options="options" width="350" height="350"></canvas>
 ```
 
 Available Types:

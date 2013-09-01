@@ -6,7 +6,7 @@
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <title>tc-angular-chartjs demo</title>
 </head>
-<body ng-app="app">
+<body data-ng-app="app">
 
 <div class="container">
   <h1>tc-angular-chartjs demo</h1>
@@ -14,20 +14,20 @@
 
 <!-- Line --------------------------------------------------------------------->
 
-  <div ng-controller="LineCtrl">
+  <div data-ng-controller="LineCtrl">
     <h2>Line Chart</h2>
     <div class="row">
       <div class="col-lg-4">
-        <canvas tc-chartjs type="line" options="options" data="data" width="350" height="350"></canvas>
+        <canvas data-tc-chartjs data-chart-type="line" data-chart-options="options" data-chart-data="data" width="350" height="350"></canvas>
       </div>
       <div class="col-lg-8">
         <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
 <pre>
-&lt;canvas tc-chartjs type="line" data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+&lt;canvas tc-chartjs chart-type="line" chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
 </pre>
         <h4>Using <span class="label label-primary">tc-chartjs-line</span> directive</h4>
 <pre>
-&lt;canvas tc-chartjs-line data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+&lt;canvas tc-chartjs-line chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
 </pre>
         <h4>$scope</h4>
 <pre>
@@ -65,16 +65,16 @@ $scope.options =  {
     <h2>Bar Chart</h2>
     <div class="row">
       <div class="col-lg-4">
-        <canvas tc-chartjs type="bar" options="options" data="data" width="350" height="350"></canvas>
+        <canvas tc-chartjs chart-type="bar" chart-options="options" chart-data="data" width="350" height="350"></canvas>
       </div>
       <div class="col-lg-8">
         <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
 <pre>
-&lt;canvas tc-chartjs type="bar" data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+&lt;canvas tc-chartjs chart-type="bar" chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
 </pre>
         <h4>Using <span class="label label-primary">tc-chartjs-bar</span> directive</h4>
 <pre>
-&lt;canvas tc-chartjs-bar data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+&lt;canvas tc-chartjs-bar chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
 </pre>
         <h4>$scope</h4>
 <pre>
@@ -108,16 +108,16 @@ $scope.options =  {
     <h2>Radar Chart</h2>
     <div class="row">
       <div class="col-lg-4">
-        <canvas tc-chartjs type="radar" options="options" data="data" width="350" height="350"></canvas>
+        <canvas tc-chartjs chart-type="radar" chart-options="options" chart-data="data" width="350" height="350"></canvas>
       </div>
       <div class="col-lg-8">
         <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
 <pre>
-&lt;canvas tc-chartjs type="radar" data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+&lt;canvas tc-chartjs chart-type="radar" chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
 </pre>
         <h4>Using <span class="label label-primary">tc-chartjs-radar</span> directive</h4>
 <pre>
-&lt;canvas tc-chartjs-radar data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+&lt;canvas tc-chartjs-radar chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
 </pre>
         <h4>$scope</h4>
 <pre>
@@ -155,16 +155,16 @@ $scope.options =  {
     <h2>Polar Area Chart</h2>
     <div class="row">
       <div class="col-lg-4">
-        <canvas tc-chartjs type="polararea" options="options" data="data" width="350" height="350"></canvas>
+        <canvas tc-chartjs chart-type="polararea" chart-options="options" chart-data="data" width="350" height="350"></canvas>
       </div>
       <div class="col-lg-8">
         <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
 <pre>
-&lt;canvas tc-chartjs type="polararea" data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+&lt;canvas tc-chartjs chart-type="polararea" chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
 </pre>
         <h4>Using <span class="label label-primary">tc-chartjs-polararea</span> directive</h4>
 <pre>
-&lt;canvas tc-chartjs-polararea data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+&lt;canvas tc-chartjs-polararea chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
 </pre>
         <h4>$scope</h4>
 <pre>
@@ -191,16 +191,16 @@ $scope.options =  {
     <h2>Pie Chart</h2>
     <div class="row">
       <div class="col-lg-4">
-        <canvas tc-chartjs type="pie" options="options" data="data" width="350" height="350"></canvas>
+        <canvas tc-chartjs chart-type="pie" chart-options="options" chart-data="data" width="350" height="350"></canvas>
       </div>
       <div class="col-lg-8">
         <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
 <pre>
-&lt;canvas tc-chartjs type="pie" data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+&lt;canvas tc-chartjs chart-type="pie" chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
 </pre>
         <h4>Using <span class="label label-primary">tc-chartjs-pie</span> directive</h4>
 <pre>
-&lt;canvas tc-chartjs-pie data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+&lt;canvas tc-chartjs-pie chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
 </pre>
         <h4>$scope</h4>
 <pre>
@@ -224,16 +224,16 @@ $scope.options =  {
     <h2>Doughnut Chart</h2>
     <div class="row">
       <div class="col-lg-4">
-        <canvas tc-chartjs type="doughnut" options="options" data="data" width="350" height="350"></canvas>
+        <canvas tc-chartjs chart-type="doughnut" chart-options="options" chart-data="data" width="350" height="350"></canvas>
       </div>
       <div class="col-lg-8">
         <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
 <pre>
-&lt;canvas tc-chartjs type="doughnut" data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+&lt;canvas tc-chartjs chart-type="doughnut" chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
 </pre>
         <h4>Using <span class="label label-primary">tc-chartjs-doughnut</span> directive</h4>
 <pre>
-&lt;canvas tc-chartjs-doughnut data="data" options="options" width="350" height="350"&gt;&lt;/canvas&gt;
+&lt;canvas tc-chartjs-doughnut chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
 </pre>
         <h4>$scope</h4>
 <pre>
