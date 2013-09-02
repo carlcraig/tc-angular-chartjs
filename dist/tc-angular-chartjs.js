@@ -1,5 +1,5 @@
 /**
- * tc-angular-chartjs - v0.0.1 - 2013-09-01
+ * tc-angular-chartjs - v0.0.6 - 2013-09-02
  * Copyright (c) 2013 Threecee Studios
  */
 angular.module("tc.chartjs", []).directive("tcChartjs", [ "TcChartjsFactory", function(TcChartjsFactory) {
