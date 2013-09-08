@@ -1,7 +1,7 @@
 tc-angular-chartjs
 ==================
 
-
+[![Build Status](https://travis-ci.org/ThreeceeStudios/tc-angular-chartjs.png)](https://travis-ci.org/ThreeceeStudios/tc-angular-chartjs)
 
 Add Chart.js to your angular applications
 -----------------------------------------
