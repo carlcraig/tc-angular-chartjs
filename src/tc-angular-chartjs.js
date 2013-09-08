@@ -1,3 +1,8 @@
+/**
+ * Copyright 2013 Threecee Studios
+ * tc-angular-chartjs is dual licensed with the Apache-2.0 or MIT license.
+ */
+
 angular.module( 'tc.chartjs', [])
   .directive( 'tcChartjs', function( TcChartjsFactory ) {
     return new TcChartjsFactory();

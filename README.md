@@ -1,7 +1,10 @@
 tc-angular-chartjs
 ==================
 
-###Add Chart.js to your angular applications
+
+
+Add Chart.js to your angular applications
+-----------------------------------------
 
 tc-angular-chartjs provides you with directives for all chartjs chart types.
 
@@ -14,7 +17,8 @@ tc-angular-chartjs provides you with directives for all chartjs chart types.
 
 You can see all the [Chart.js Documentation](http://www.chartjs.org/docs/) on their website.
 
-### Installation
+Installation
+============
 
 Grab the latest version of `Chart.js` and `tc-angular-chartjs`.
 
@@ -32,7 +36,8 @@ Require `tc.chartjs` in your application modules where you require `Chart.js`.
 angular.module( 'app', ['tc.chartjs']);
 ```
 
-### Basic Usage
+Basic Usage
+===========
 
 There are 6 different directives.
 
@@ -69,7 +74,8 @@ $scope.myOptions =  {
 };
 ```
 
-### Using the `tc-chartjs` directive
+Using the `tc-chartjs` directive
+================================
 
 When using the `tc-chartjs` directive you will need to add an additional attribute to
 say which type of chart should be created.
@@ -90,8 +96,20 @@ Available Types:
 - doughnut
 
 
-### LICENSE
+Contributing
+============
 
-tc-angular-chartjs is primarily distributed under the terms of both the MIT license and the Apache License (Version 2.0).
+- [Open a Pull Request (PR)](https://github.com/ThreeceeStudios/tc-angular-chartjs/pull/new/master)
+- Make sure your PR is on a new branch you created from the latest version of master branch
+- Please do not open a PR from your master branch
+- Open a PR even if your code is incomplete to start a discussion and to collect feedback
+- Please make sure all unit tests pass, and add new tests for any added features.
 
-See LICENSE-APACHE and LICENSE-MIT for more details.
+
+License
+=======
+
+tc-angular-chartjs is dual licensed with the Apache-2.0 or MIT license.
+
+See LICENSE-APACHE-2.0 and LICENSE-MIT for more details.
+

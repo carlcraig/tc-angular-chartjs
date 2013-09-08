@@ -1,13 +1,12 @@
 {
   "name": "tc-angular-chartjs",
-  "version": "0.0.6",
+  "version": "1.0.",
   "description": "Add Chart.js charts to your angular application",
-  "author": "Threecee Studios",
-  "license": "MIT and APACHE2",
   "homepage": "https://github.com/ThreeceeStudios/tc-angular-chartjs",
+  "author": "Threecee Studios",
   "dependencies": {},
   "devDependencies": {
-    "bower": "~0.9.2",
+    "karma": "~0.8",
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.1.1",
     "grunt-contrib-uglify": "~0.2.1",
@@ -17,6 +16,19 @@
     "grunt-karma": "~0.4.4",
     "grunt-contrib-watch": "~0.4.3"
   },
+  "scripts": {
+    "test": "./node_modules/.bin/karma start ./test/karma.conf.js --single-run --browsers PhantomJS"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/ThreeceeStudios/tc-angular-chartjs/master/LICENSE-MIT"
+    },
+    {
+      "type": "Apache-2.0",
+      "url": "https://raw.github.com/ThreeceeStudios/tc-angular-chartjs/master/LICENSE-APACHE-2.0"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ThreeceeStudios/tc-angular-chartjs"
