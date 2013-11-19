@@ -1,7 +1,7 @@
 tc-angular-chartjs
 ==================
 
-[![Build Status](https://travis-ci.org/ThreeceeStudios/tc-angular-chartjs.png)](https://travis-ci.org/ThreeceeStudios/tc-angular-chartjs)
+[![Build Status](https://travis-ci.org/carlcraig/tc-angular-chartjs.png)](https://travis-ci.org/carlcraig/tc-angular-chartjs)
 
 ### Add Chart.js to your angular applications
 
@@ -98,7 +98,7 @@ Available Types:
 Contributing
 ============
 
-- [Open a Pull Request (PR)](https://github.com/ThreeceeStudios/tc-angular-chartjs/pull/new/master)
+- [Open a Pull Request (PR)](https://github.com/carlcraig/tc-angular-chartjs/pull/new/master)
 - Make sure your PR is on a new branch you created from the latest version of master branch
 - Please do not open a PR from your master branch
 - Open a PR even if your code is incomplete to start a discussion and to collect feedback
