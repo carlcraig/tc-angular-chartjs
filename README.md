@@ -1,7 +1,7 @@
 tc-angular-chartjs
 ==================
 
-[![Build Status](https://travis-ci.org/carlcraig/tc-angular-chartjs.png)](https://travis-ci.org/carlcraig/tc-angular-chartjs)
+[![Build Status](https://travis-ci.org/carlcraig/tc-angular-chartjs.svg)](https://travis-ci.org/carlcraig/tc-angular-chartjs)
 
 ### Add Chart.js to your angular applications
 
