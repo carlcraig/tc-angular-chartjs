@@ -1,6 +1,6 @@
 /**
- * tc-angular-chartjs - v1.0.1 - 2013-09-08
- * Copyright (c) 2013 Carl Craig
+ * tc-angular-chartjs - v1.0.2 - 2014-07-17
+ * Copyright (c) 2014 Carl Craig <carlcraig@3c-studios.com>
  * Dual licensed with the Apache-2.0 or MIT license.
  */
 angular.module("tc.chartjs", []).directive("tcChartjs", [ "TcChartjsFactory", function(TcChartjsFactory) {
