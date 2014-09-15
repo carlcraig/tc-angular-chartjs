@@ -1,0 +1,31 @@
+.footer {
+  background-color:#333333;
+  color:white;
+  padding-top:15px;
+}
+
+.chart-banner {
+  background-color:rgba(0, 140, 186, 0.3);
+  padding-top:25px;
+  margin-bottom:15px;
+  border-top:1px solid #666666;
+  border-bottom:1px solid #cccccc;
+}
+
+.tc-chart-js-legend {
+  list-style-type: none;
+  padding-left: 0px;
+}
+.tc-chart-js-legend li {
+  display: block;
+  float: left;
+  clear:both;
+  padding:10px;
+}
+.tc-chart-js-legend li span {
+  width:25px;
+  height:25px;
+  display:block;
+  float:left;
+  margin-right:10px;
+}

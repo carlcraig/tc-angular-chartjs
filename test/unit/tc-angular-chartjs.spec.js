@@ -1,4 +1,5 @@
 describe('tc-chartjs directive', function() {
+  'use strict';
   var $compile, $scope, element;
 
   beforeEach(module('tc.chartjs'));
