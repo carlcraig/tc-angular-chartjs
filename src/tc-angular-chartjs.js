@@ -45,16 +45,18 @@ angular.module( 'tc.chartjs', [])
               if ( value ) {
                 if ( chartType ) {
                   chart[ cleanChartName(chartType) ]( $scope.data, $scope.options );
-                } else {
+                } else if ($scope.type) {
                   chart[ cleanChartName($scope.type) ]( $scope.data, $scope.options );
+                } else {
+                  throw 'Error creating chart: Chart type required.';
                 }
               }
             },
             true
           );
           function cleanChartName( type ) {
-            type = type.toLowerCase();
-            switch ( type ) {
+            var lcType = type.toLowerCase();
+            switch ( lcType ) {
               case 'line':
                 return 'Line';
               case 'bar':
@@ -68,7 +70,7 @@ angular.module( 'tc.chartjs', [])
               case 'doughnut':
                 return 'Doughnut';
               default:
-                return '';
+                return type;
             }
           }
         }

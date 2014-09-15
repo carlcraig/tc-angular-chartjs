@@ -1,5 +1,5 @@
 /**
- * tc-angular-chartjs - v1.0.2 - 2014-07-17
+ * tc-angular-chartjs - v1.0.3 - 2014-09-15
  * Copyright (c) 2014 Carl Craig <carlcraig@3c-studios.com>
  * Dual licensed with the Apache-2.0 or MIT license.
  */
@@ -34,14 +34,16 @@ angular.module("tc.chartjs", []).directive("tcChartjs", [ "TcChartjsFactory", fu
                     if (value) {
                         if (chartType) {
                             chart[cleanChartName(chartType)]($scope.data, $scope.options);
-                        } else {
+                        } else if ($scope.type) {
                             chart[cleanChartName($scope.type)]($scope.data, $scope.options);
+                        } else {
+                            throw "Error creating chart: Chart type required.";
                         }
                     }
                 }, true);
                 function cleanChartName(type) {
-                    type = type.toLowerCase();
-                    switch (type) {
+                    var lcType = type.toLowerCase();
+                    switch (lcType) {
                       case "line":
                         return "Line";
 
@@ -61,7 +63,7 @@ angular.module("tc.chartjs", []).directive("tcChartjs", [ "TcChartjsFactory", fu
                         return "Doughnut";
 
                       default:
-                        return "";
+                        return type;
                     }
                 }
             }

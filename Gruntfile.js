@@ -119,11 +119,12 @@ module.exports = function(grunt) {
     },
 
     /**
-     * Watch
+     * Watch. Run karma watcher with
+     * grunt karma:unit:start watch
      */
     watch: {
       karma: {
-        files: ['src/*.js', 'test/*.js'],
+        files: ['src/*.js', 'test/**/*.js'],
         tasks: ['karma:unit:run']
       }
     },
