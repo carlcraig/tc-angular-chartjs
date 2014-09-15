@@ -94,6 +94,9 @@ Available Types:
 - pie
 - doughnut
 
+Passing another value to chart-type than the above will try to create a chart of
+that type, which is useful if you have extended Chart.js with custom chart types,
+e.g. through plugins.
 
 Contributing
 ============
