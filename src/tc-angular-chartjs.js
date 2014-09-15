@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Carl Craig
+ * Copyright 2014 Carl Craig
  * tc-angular-chartjs is dual licensed with the Apache-2.0 or MIT license.
  */
 
