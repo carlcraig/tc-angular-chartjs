@@ -2,7 +2,7 @@ describe('tc-chartjs directive', function() {
   'use strict';
   var $compile, $scope, element, chartInstance,
 
-  ChartMock = function (ctx) {
+  ChartMock = function () {
     this.Line = jasmine.createSpy('Line');
     this.Bar = jasmine.createSpy('Bar');
     this.Radar = jasmine.createSpy('Radar');

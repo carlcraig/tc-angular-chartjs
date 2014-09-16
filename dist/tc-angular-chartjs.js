@@ -1,5 +1,5 @@
 /**
- * tc-angular-chartjs - v1.0.4 - 2014-09-15
+ * tc-angular-chartjs - v1.0.4 - 2014-09-16
  * Copyright (c) 2014 Carl Craig <carlcraig@3c-studios.com>
  * Dual licensed with the Apache-2.0 or MIT license.
  */
@@ -76,8 +76,10 @@
                     if (value) {
                         if (chartType) {
                             chartObj = chart[cleanChartName(chartType)]($scope.data, $scope.options);
-                        } else {
+                        } else if ($scope.type) {
                             chartObj = chart[cleanChartName($scope.type)]($scope.data, $scope.options);
+                        } else {
+                            throw "Error creating chart: Chart type required.";
                         }
                     }
                     if (showLegend) {
