@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pie Chart - tc-angular-chartjs</title>
+  <!-- HEAD -->
+  <link rel="stylesheet" href="../css/prism.css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/foundation.min.css">
+  <link rel="stylesheet" href="../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <script src="../js/vendor/modernizr.js"></script>
+  <!-- END HEAD -->
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="contain-to-grid fixed">
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="../index.html">tc-angular-chartjs</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <section class="top-bar-section">
+
+      <ul class="left">
+        <li class="divider"></li>
+        <li><a href="../index.html">Quick Start</a></li>
+        <li class="divider"></li>
+        <li><a href="../line/index.html">Line</a></li>
+        <li class="divider"></li>
+        <li><a href="../bar/index.html">Bar</a></li>
+        <li class="divider"></li>
+        <li><a href="../doughnut/index.html">Doughnut</a></li>
+        <li class="divider"></li>
+        <li class="active"><a href="">Pie</a></li>
+        <li class="divider"></li>
+        <li><a href="../polararea/index.html">Polar Area</a></li>
+        <li class="divider"></li>
+        <li><a href="../radar/index.html">Radar</a></li>
+        <li class="divider"></li>
+        <li><a href="../legend/index.html">Legends</a></li>
+        <li class="divider"></li>
+      </ul>
+      <ul class="right">
+        <li class="divider"></li>
+        <li><a href="https://github.com/carlcraig/tc-angular-chartjs" target="_blank"><i class="fa fa-github"></i> Github</a></li>
+      </ul>
+
+    </section>
+  </nav>
+</div>
+<!-- END TOP BAR -->
+
+<!-- CONTENT -->
+<div class="row" ng-controller="PieCtrl" style="margin-top:20px;">
+  <div class="large-12 columns">
+    <h1>Pie Chart</h1>
+    <hr>
+  </div>
+  <div class="medium-8 columns">
+    <canvas tc-chartjs-pie chart-options="options" chart-data="data" chart-legend="pieChart1" ></canvas>
+  </div>
+  <div class="medium-4 columns">
+    <div tc-chartjs-legend chart-legend="pieChart1"></div>
+  </div>
+  <div class="medium-12 columns" style="">
+    <hr>
+    <h3>HTML Code</h3>
+    <p>
+<pre class="language-markup"><code class="language-markup">&lt;div ng-app=&quot;myModule&quot;&gt;
+  &lt;div ng-controller=&quot;myController&quot;&gt;
+
+    &lt;canvas tc-chartjs-pie chart-options=&quot;options&quot; chart-data=&quot;data&quot; auto-legend&gt;&lt;/canvas&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </p>
+    <h3>JS Code</h3>
+    <p>
+<pre class="language-javascript"><code class="language-javascript">angular
+  .module( 'myModule', [ 'tc.chartjs' ])
+  .controller( 'myController', function( $scope ) {
+
+    // Chart.js Data
+    $scope.data = [
+      {
+        value: 300,
+        color:'#F7464A',
+        highlight: '#FF5A5E',
+        label: 'Red'
+      },
+      {
+        value: 50,
+        color: '#46BFBD',
+        highlight: '#5AD3D1',
+        label: 'Green'
+      },
+      {
+        value: 100,
+        color: '#FDB45C',
+        highlight: '#FFC870',
+        label: 'Yellow'
+      }
+    ];
+
+    // Chart.js Options
+    $scope.options =  {
+
+      // Sets the chart to be responsive
+      responsive: true,
+
+      //Boolean - Whether we should show a stroke on each segment
+      segmentShowStroke : true,
+
+      //String - The colour of each segment stroke
+      segmentStrokeColor : '#fff',
+
+      //Number - The width of each segment stroke
+      segmentStrokeWidth : 2,
+
+      //Number - The percentage of the chart that we cut out of the middle
+      percentageInnerCutout : 0, // This is 0 for Pie charts
+
+      //Number - Amount of animation steps
+      animationSteps : 100,
+
+      //String - Animation easing effect
+      animationEasing : 'easeOutBounce',
+
+      //Boolean - Whether we animate the rotation of the Doughnut
+      animateRotate : true,
+
+      //Boolean - Whether we animate scaling the Doughnut from the centre
+      animateScale : false,
+
+      //String - A legend template
+      legendTemplate : '&lt;ul class="tc-chart-js-legend"&gt;&lt;% for (var i=0; i&lt;segments.length; i++){%&gt;&lt;li&gt;&lt;span style="background-color:&lt;%=segments[i].fillColor%&gt;"&gt;&lt;/span&gt;&lt;%if(segments[i].label){%&gt;&lt;%=segments[i].label%&gt;&lt;%}%&gt;&lt;/li&gt;&lt;%}%&gt;&lt;/ul&gt;'
+
+    };
+
+  });
+</code></pre>
+    </p>
+  </div>
+</div>
+<!-- END CONTENT -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="row">
+    <div class="medium-6 columns">
+      <p class="text-left">Copyright &copy; 2014 Carl Craig</p>
+    </div>
+    <div class="medium-6 columns">
+      <p class="text-right">
+        Dual licensed with the
+        <a href="https://github.com/carlcraig/tc-angular-chartjs/blob/master/LICENSE-APACHE-2.0" target="_blank">Apache-2.0</a>
+        or
+        <a href="https://github.com/carlcraig/tc-angular-chartjs/blob/master/LICENSE-MIT" target="_blank">MIT</a>
+        license
+      </p>
+    </div>
+  </div>
+</div>
+<!-- ENDFOOTER -->
+
+<!-- SCRIPTS -->
+<script src="../js/vendor/prism.js"></script>
+<script src="../js/vendor/jquery.js"></script>
+<script src="../js/vendor/fastclick.js"></script>
+<script src="../js/vendor/foundation.min.js"></script>
+<script src="../js/vendor/angular.js"></script>
+<script src="../js/vendor/Chart.js"></script>
+<script src="../../src/tc-angular-chartjs.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/line.js"></script>
+<script src="../js/bar.js"></script>
+<script src="../js/radar.js"></script>
+<script src="../js/polararea.js"></script>
+<script src="../js/pie.js"></script>
+<script src="../js/doughnut.js"></script>
+<script>
+  $(document).foundation();
+</script>
+<!-- END SCRIPTS -->
+</body>
+</html>

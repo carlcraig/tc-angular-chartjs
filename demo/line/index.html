@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Line Chart - tc-angular-chartjs</title>
+  <!-- HEAD -->
+  <link rel="stylesheet" href="../css/prism.css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/foundation.min.css">
+  <link rel="stylesheet" href="../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <script src="../js/vendor/modernizr.js"></script>
+  <!-- END HEAD -->
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="contain-to-grid fixed">
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="../index.html">tc-angular-chartjs</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <section class="top-bar-section">
+
+      <ul class="left">
+        <li class="divider"></li>
+        <li><a href="../index.html">Quick Start</a></li>
+        <li class="divider"></li>
+        <li class="active"><a href="">Line</a></li>
+        <li class="divider"></li>
+        <li><a href="../bar/index.html">Bar</a></li>
+        <li class="divider"></li>
+        <li><a href="../doughnut/index.html">Doughnut</a></li>
+        <li class="divider"></li>
+        <li><a href="../pie/index.html">Pie</a></li>
+        <li class="divider"></li>
+        <li><a href="../polararea/index.html">Polar Area</a></li>
+        <li class="divider"></li>
+        <li><a href="../radar/index.html">Radar</a></li>
+        <li class="divider"></li>
+        <li><a href="../legend/index.html">Legends</a></li>
+        <li class="divider"></li>
+      </ul>
+      <ul class="right">
+        <li class="divider"></li>
+        <li><a href="https://github.com/carlcraig/tc-angular-chartjs" target="_blank"><i class="fa fa-github"></i> Github</a></li>
+      </ul>
+
+    </section>
+  </nav>
+</div>
+<!-- END TOP BAR -->
+
+<!-- CONTENT -->
+<div class="row" ng-controller="LineCtrl" style="margin-top:20px;">
+  <div class="large-12 columns">
+    <h1>Line Chart</h1>
+    <hr>
+  </div>
+  <div class="medium-8 columns">
+    <canvas tc-chartjs-line chart-options="options" chart-data="data" chart-legend="lineChart1" ></canvas>
+  </div>
+  <div class="medium-4 columns">
+    <div tc-chartjs-legend chart-legend="lineChart1"></div>
+  </div>
+  <div class="medium-12 columns" style="">
+    <hr>
+    <h3>HTML Code</h3>
+    <p>
+<pre class="language-markup"><code class="language-markup">&lt;div ng-app=&quot;myModule&quot;&gt;
+  &lt;div ng-controller=&quot;myController&quot;&gt;
+
+    &lt;canvas tc-chartjs-line chart-options=&quot;options&quot; chart-data=&quot;data&quot; auto-legend&gt;&lt;/canvas&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </p>
+    <h3>JS Code</h3>
+    <p>
+<pre class="language-javascript"><code class="language-javascript">angular
+  .module( 'myModule', [ 'tc.chartjs' ])
+  .controller( 'myController', function( $scope ) {
+
+    // Chart.js Data
+    $scope.data = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+        {
+          label: 'My First dataset',
+          fillColor: 'rgba(220,220,220,0.2)',
+          strokeColor: 'rgba(220,220,220,1)',
+          pointColor: 'rgba(220,220,220,1)',
+          pointStrokeColor: '#fff',
+          pointHighlightFill: '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data: [65, 59, 80, 81, 56, 55, 40]
+        },
+        {
+          label: 'My Second dataset',
+          fillColor: 'rgba(151,187,205,0.2)',
+          strokeColor: 'rgba(151,187,205,1)',
+          pointColor: 'rgba(151,187,205,1)',
+          pointStrokeColor: '#fff',
+          pointHighlightFill: '#fff',
+          pointHighlightStroke: 'rgba(151,187,205,1)',
+          data: [28, 48, 40, 19, 86, 27, 90]
+        }
+      ]
+    };
+
+    // Chart.js Options
+    $scope.options =  {
+
+      // Sets the chart to be responsive
+      responsive: true,
+
+      ///Boolean - Whether grid lines are shown across the chart
+      scaleShowGridLines : true,
+
+      //String - Colour of the grid lines
+      scaleGridLineColor : "rgba(0,0,0,.05)",
+
+      //Number - Width of the grid lines
+      scaleGridLineWidth : 1,
+
+      //Boolean - Whether the line is curved between points
+      bezierCurve : true,
+
+      //Number - Tension of the bezier curve between points
+      bezierCurveTension : 0.4,
+
+      //Boolean - Whether to show a dot for each point
+      pointDot : true,
+
+      //Number - Radius of each point dot in pixels
+      pointDotRadius : 4,
+
+      //Number - Pixel width of point dot stroke
+      pointDotStrokeWidth : 1,
+
+      //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+      pointHitDetectionRadius : 20,
+
+      //Boolean - Whether to show a stroke for datasets
+      datasetStroke : true,
+
+      //Number - Pixel width of dataset stroke
+      datasetStrokeWidth : 2,
+
+      //Boolean - Whether to fill the dataset with a colour
+      datasetFill : true,
+
+      // Function - on animation progress
+      onAnimationProgress: function(){},
+
+      // Function - on animation complete
+      onAnimationComplete: function(){},
+
+      //String - A legend template
+      legendTemplate : '&lt;ul class="tc-chart-js-legend"&gt;&lt;% for (var i=0; i&lt;datasets.length; i++){%&gt;&lt;li&gt;&lt;span style="background-color:&lt;%=datasets[i].strokeColor%&gt;"&gt;&lt;/span&gt;&lt;%if(datasets[i].label){%&gt;&lt;%=datasets[i].label%&gt;&lt;%}%&gt;&lt;/li&gt;&lt;%}%&gt;&lt;/ul&gt;'
+    };
+
+  });
+</code></pre>
+    </p>
+  </div>
+</div>
+<!-- END CONTENT -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="row">
+    <div class="medium-6 columns">
+      <p class="text-left">Copyright &copy; 2014 Carl Craig</p>
+    </div>
+    <div class="medium-6 columns">
+      <p class="text-right">
+        Dual licensed with the
+        <a href="https://github.com/carlcraig/tc-angular-chartjs/blob/master/LICENSE-APACHE-2.0" target="_blank">Apache-2.0</a>
+        or
+        <a href="https://github.com/carlcraig/tc-angular-chartjs/blob/master/LICENSE-MIT" target="_blank">MIT</a>
+        license
+      </p>
+    </div>
+  </div>
+</div>
+<!-- ENDFOOTER -->
+
+<!-- SCRIPTS -->
+<script src="../js/vendor/prism.js"></script>
+<script src="../js/vendor/jquery.js"></script>
+<script src="../js/vendor/fastclick.js"></script>
+<script src="../js/vendor/foundation.min.js"></script>
+<script src="../js/vendor/angular.js"></script>
+<script src="../js/vendor/Chart.js"></script>
+<script src="../../src/tc-angular-chartjs.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/line.js"></script>
+<script src="../js/bar.js"></script>
+<script src="../js/radar.js"></script>
+<script src="../js/polararea.js"></script>
+<script src="../js/pie.js"></script>
+<script src="../js/doughnut.js"></script>
+<script>
+  $(document).foundation();
+</script>
+<!-- END SCRIPTS -->
+</body>
+</html>

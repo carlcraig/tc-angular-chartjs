@@ -1,270 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-ng-app="app">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
-  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-  <title>tc-angular-chartjs demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tc-angular-chartjs</title>
+  <!-- HEAD -->
+  <link rel="stylesheet" href="css/prism.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/foundation.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/vendor/modernizr.js"></script>
+  <!-- END HEAD -->
 </head>
-<body data-ng-app="app">
+<body>
 
-<div class="container">
-  <h1>tc-angular-chartjs demo</h1>
-  <hr>
+<!-- TOP BAR -->
+<div class="contain-to-grid fixed">
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="">tc-angular-chartjs</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <section class="top-bar-section">
 
-<!-- Line --------------------------------------------------------------------->
+      <ul class="left">
+        <li class="divider"></li>
+        <li class="active"><a href="">Quick Start</a></li>
+        <li class="divider"></li>
+        <li><a href="line/index.html">Line</a></li>
+        <li class="divider"></li>
+        <li><a href="bar/index.html">Bar</a></li>
+        <li class="divider"></li>
+        <li><a href="doughnut/index.html">Doughnut</a></li>
+        <li class="divider"></li>
+        <li><a href="pie/index.html">Pie</a></li>
+        <li class="divider"></li>
+        <li><a href="polararea/index.html">Polar Area</a></li>
+        <li class="divider"></li>
+        <li><a href="radar/index.html">Radar</a></li>
+        <li class="divider"></li>
+        <li><a href="legend/index.html">Legends</a></li>
+        <li class="divider"></li>
+      </ul>
+      <ul class="right">
+        <li class="divider"></li>
+        <li><a href="https://github.com/carlcraig/tc-angular-chartjs" target="_blank"><i class="fa fa-github"></i> Github</a></li>
+      </ul>
 
-  <div data-ng-controller="LineCtrl">
-    <h2>Line Chart</h2>
-    <div class="row">
-      <div class="col-lg-4">
-        <canvas data-tc-chartjs data-chart-type="line" data-chart-options="options" data-chart-data="data" width="350" height="350"></canvas>
-      </div>
-      <div class="col-lg-8">
-        <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
-<pre>
-&lt;canvas tc-chartjs chart-type="line" chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
-</pre>
-        <h4>Using <span class="label label-primary">tc-chartjs-line</span> directive</h4>
-<pre>
-&lt;canvas tc-chartjs-line chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
-</pre>
-        <h4>$scope</h4>
-<pre>
-$scope.data = {
-  labels : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul' ],
-  datasets : [
-    {
-      fillColor : 'rgba(220,220,220,0.5)',
-      strokeColor : 'rgba(220,220,220,1)',
-      pointColor : 'rgba(220,220,220,1)',
-      pointStrokeColor : '#fff',
-      data : [ 65, 59, 90, 81, 56, 55, 40]
-    },
-    {
-      fillColor : 'rgba(151,187,205,0.5)',
-      strokeColor : 'rgba(151,187,205,1)',
-      pointColor : 'rgba(151,187,205,1)',
-      pointStrokeColor : '#fff',
-      data : [ 28, 48, 40, 19, 96, 27, 100]
-    }
-  ]
-};
-
-$scope.options =  {
-  // Chart.js options can go here.
-};
-</pre>
-      </div>
-    </div>
-  </div>
-
-<!-- Bar ---------------------------------------------------------------------->
-
-  <div ng-controller="BarCtrl">
-    <h2>Bar Chart</h2>
-    <div class="row">
-      <div class="col-lg-4">
-        <canvas tc-chartjs chart-type="bar" chart-options="options" chart-data="data" width="350" height="350"></canvas>
-      </div>
-      <div class="col-lg-8">
-        <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
-<pre>
-&lt;canvas tc-chartjs chart-type="bar" chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
-</pre>
-        <h4>Using <span class="label label-primary">tc-chartjs-bar</span> directive</h4>
-<pre>
-&lt;canvas tc-chartjs-bar chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
-</pre>
-        <h4>$scope</h4>
-<pre>
-$scope.data = {
-  labels : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul' ],
-  datasets : [
-    {
-      fillColor : 'rgba(220,220,220,0.5)',
-      strokeColor : 'rgba(220,220,220,1)',
-      data : [ 65, 59, 90, 81, 56, 55, 40 ]
-    },
-    {
-      fillColor : 'rgba(151,187,205,0.5)',
-      strokeColor : 'rgba(151,187,205,1)',
-      data : [ 28, 48, 40, 19, 96, 27, 100 ]
-    }
-  ]
-};
-
-$scope.options =  {
-  // Chart.js options can go here.
-};
-</pre>
-      </div>
-    </div>
-  </div>
-
-<!-- Radar -------------------------------------------------------------------->
-
-  <div ng-controller="RadarCtrl">
-    <h2>Radar Chart</h2>
-    <div class="row">
-      <div class="col-lg-4">
-        <canvas tc-chartjs chart-type="radar" chart-options="options" chart-data="data" width="350" height="350"></canvas>
-      </div>
-      <div class="col-lg-8">
-        <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
-<pre>
-&lt;canvas tc-chartjs chart-type="radar" chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
-</pre>
-        <h4>Using <span class="label label-primary">tc-chartjs-radar</span> directive</h4>
-<pre>
-&lt;canvas tc-chartjs-radar chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
-</pre>
-        <h4>$scope</h4>
-<pre>
-$scope.data = {
-  labels : [ 'Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Partying', 'Running' ],
-  datasets : [
-    {
-      fillColor : 'rgba(220,220,220,0.5)',
-      strokeColor : 'rgba(220,220,220,1)',
-      pointColor : 'rgba(220,220,220,1)',
-      pointStrokeColor : '#fff',
-      data : [ 65, 59, 90, 81, 56, 55, 40]
-    },
-    {
-      fillColor : 'rgba(151,187,205,0.5)',
-      strokeColor : 'rgba(151,187,205,1)',
-      pointColor : 'rgba(151,187,205,1)',
-      pointStrokeColor : '#fff',
-      data : [ 28, 48, 40, 19, 96, 27, 100 ]
-    }
-  ]
-};
-
-$scope.options =  {
-  // Chart.js options can go here.
-};
-</pre>
-      </div>
-    </div>
-  </div>
-
-<!-- Polararea ---------------------------------------------------------------->
-
-  <div ng-controller="PolarareaCtrl">
-    <h2>Polar Area Chart</h2>
-    <div class="row">
-      <div class="col-lg-4">
-        <canvas tc-chartjs chart-type="polararea" chart-options="options" chart-data="data" width="350" height="350"></canvas>
-      </div>
-      <div class="col-lg-8">
-        <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
-<pre>
-&lt;canvas tc-chartjs chart-type="polararea" chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
-</pre>
-        <h4>Using <span class="label label-primary">tc-chartjs-polararea</span> directive</h4>
-<pre>
-&lt;canvas tc-chartjs-polararea chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
-</pre>
-        <h4>$scope</h4>
-<pre>
-$scope.data = [
-  { value : 30, color: "#D97041" },
-  { value : 90, color: "#C7604C" },
-  { value : 24, color: "#21323D" },
-  { value : 58, color: "#9D9B7F" },
-  { value : 82, color: "#7D4F6D" },
-  { value : 8, color: "#584A5E" }
-];
-
-$scope.options =  {
-  // Chart.js options can go here.
-};
-</pre>
-      </div>
-    </div>
-  </div>
-
-<!-- Pie ---------------------------------------------------------------------->
-
-  <div ng-controller="PieCtrl">
-    <h2>Pie Chart</h2>
-    <div class="row">
-      <div class="col-lg-4">
-        <canvas tc-chartjs chart-type="pie" chart-options="options" chart-data="data" width="350" height="350"></canvas>
-      </div>
-      <div class="col-lg-8">
-        <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
-<pre>
-&lt;canvas tc-chartjs chart-type="pie" chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
-</pre>
-        <h4>Using <span class="label label-primary">tc-chartjs-pie</span> directive</h4>
-<pre>
-&lt;canvas tc-chartjs-pie chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
-</pre>
-        <h4>$scope</h4>
-<pre>
-$scope.data = [
-  { value: 30, color:'#F38630' },
-  { value : 50, color : '#E0E4CC' },
-  { value : 100, color : '#69D2E7' }
-];
-
-$scope.options =  {
-  // Chart.js options can go here.
-};
-</pre>
-      </div>
-    </div>
-  </div>
-
-  <!-- Doughnut ----------------------------------------------------------------->
-
-  <div ng-controller="DoughnutCtrl">
-    <h2>Doughnut Chart</h2>
-    <div class="row">
-      <div class="col-lg-4">
-        <canvas tc-chartjs chart-type="doughnut" chart-options="options" chart-data="data" width="350" height="350"></canvas>
-      </div>
-      <div class="col-lg-8">
-        <h4>Using <span class="label label-primary">tc-chartjs</span> directive</h4>
-<pre>
-&lt;canvas tc-chartjs chart-type="doughnut" chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
-</pre>
-        <h4>Using <span class="label label-primary">tc-chartjs-doughnut</span> directive</h4>
-<pre>
-&lt;canvas tc-chartjs-doughnut chart-data="data" chart-options="options" width="350" height="350"&gt;&lt;/canvas&gt;
-</pre>
-        <h4>$scope</h4>
-<pre>
-$scope.data = [
-  { value : 50, color : "#F7464A" },
-  { value : 90, color : "#E2EAE9" },
-  { value : 75, color : "#D4CCC5" },
-  { value : 30, color : "#949FB1"}
-];
-
-$scope.options =  {
-  // Chart.js options can go here.
-};
-</pre>
-      </div>
-    </div>
-  </div>
-
-
+    </section>
+  </nav>
 </div>
+<!-- END TOP BAR -->
 
-<!-- Scripts ------------------------------------------------------------------>
-<script type="text/javascript" src="js/vendors/angular.js"></script>
-<script type="text/javascript" src="js/vendors/Chart.js"></script>
-<script type="text/javascript" src="../src/tc-angular-chartjs.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/line.js"></script>
-<script type="text/javascript" src="js/bar.js"></script>
-<script type="text/javascript" src="js/radar.js"></script>
-<script type="text/javascript" src="js/polararea.js"></script>
-<script type="text/javascript" src="js/pie.js"></script>
-<script type="text/javascript" src="js/doughnut.js"></script>
+<!-- CONTENT -->
+<div class="chart-banner" data-ng-controller="HomeCtrl">
+  <canvas tc-chartjs-bar chart-data="data" chart-options="options" style="width:100%;max-height:350px"></canvas>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <h1 class="text-center">tc-angular-chartjs</h1>
+    <h5 class="text-center">Angular Directives for Chart.js</h5>
+    <div class="text-center" style="margin-top:25px;">
+      <a href="https://github.com/carlcraig/tc-angular-chartjs/archive/1.0.3.zip" class="button round">Download</a>
+    </div>
+    <hr>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <h3>Install</h3>
+    <p>Install via bower:</p>
+    <p>
+<pre class="language-none"><code class="language-none">$ bower install tc-angular-chartjs</code></pre>
+    </p>
+    <p>This will install <strong>Angular.js</strong>, <strong>Chart.js</strong> and <strong>tc-angular-chartjs</strong>. In the <em>bower_components directory</em>.</p>
+    <p>Add the scripts just before your closing <code class="language-markup">&lt;/body&gt;</code></p>
+    <p>
+<pre class="language-markup"><code class="language-markup">&lt;script src="bower_components/Chart.js/Chart.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angular/angular.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/tc-angular-chartjs/dist/tc-angular-chartjs.min.js"&gt;&lt;/script&gt;
+</code></pre>
+    </p>
+    <p>
+      Alternatively download the source and include <code class="language-none">dist/tc-angular-chartjs.min.js</code> in your scripts.
+    </p>
+    <h3>Basic Usage</h3>
+    <p>To use tc-angular-chartjs, inject <code class="language-javascript">tc.chartjs</code> into your module. You will also need to define options and data on the scope.</p>
+    <p>
+<pre class="language-javascript"><code class="language-javascript">angular
+  .module( 'myModule', [ 'tc.chartjs' ])
+  .controller( 'myController', function( $scope ) {
+
+    // Chart.js Data
+    $scope.data = { /* options */ }
+
+    // Chart.js Options
+    $scope.options = { /* data */ };
+
+  });
+</code></pre>
+    </p>
+    <p>Then use the directives in your html, passing your scope data and options to the <em>chart-data</em> and <em>chart-options</em> attributes</p>
+    <p>
+<pre class="language-markup"><code class="language-markup">&lt;div ng-app="myModule"&gt;
+  &lt;div ng-controller="myController"&gt;
+
+    &lt;canvas tc-chartjs chart-type="line" chart-data="data" chart-options="options"&gt;&lt;/canvas&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </p>
+    <h3>Directives:</h3>
+    <ul class="circle">
+      <li><strong>tc-chartjs</strong><ul>
+        <li><em>Using this directive will require an additional attribute <code class="language-none">chart-type</code> to define the type of chart to create</em></li>
+      </ul>
+      </li>
+      <li><strong>tc-chartjs-line</strong></li>
+      <li><strong>tc-chartjs-bar</strong></li>
+      <li><strong>tc-chartjs-doughnut</strong></li>
+      <li><strong>tc-chartjs-polararea</strong></li>
+      <li><strong>tc-chartjs-radar</strong></li>
+    </ul>
+    <hr>
+  </div>
+</div>
+<!-- END CONTENT -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="row">
+    <div class="medium-6 columns">
+      <p class="text-left">Copyright &copy; 2014 Carl Craig</p>
+    </div>
+    <div class="medium-6 columns">
+    <p class="text-right">
+      Dual licensed with the
+      <a href="https://github.com/carlcraig/tc-angular-chartjs/blob/master/LICENSE-APACHE-2.0" target="_blank">Apache-2.0</a>
+      or
+      <a href="https://github.com/carlcraig/tc-angular-chartjs/blob/master/LICENSE-MIT" target="_blank">MIT</a>
+      license
+    </p>
+  </div>
+  </div>
+</div>
+<!-- ENDFOOTER -->
+
+<!-- SCRIPTS -->
+<script src="js/vendor/prism.js"></script>
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/fastclick.js"></script>
+<script src="js/vendor/foundation.min.js"></script>
+<script src="js/vendor/angular.js"></script>
+<script src="js/vendor/Chart.js"></script>
+<script src="../src/tc-angular-chartjs.js"></script>
+<script src="js/app.js"></script>
+<script src="js/line.js"></script>
+<script src="js/bar.js"></script>
+<script src="js/radar.js"></script>
+<script src="js/polararea.js"></script>
+<script src="js/pie.js"></script>
+<script src="js/doughnut.js"></script>
+<script>
+  $(document).foundation();
+</script>
+<!-- END SCRIPTS -->
 </body>
 </html>

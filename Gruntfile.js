@@ -1,143 +1,125 @@
 module.exports = function(grunt) {
-  "use strict";
+  'use strict';
 
-  grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-  grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-  grunt.loadNpmTasks( 'grunt-contrib-clean' );
-  grunt.loadNpmTasks( 'grunt-strip' );
-  grunt.loadNpmTasks( 'grunt-ngmin' );
-  grunt.loadNpmTasks( 'grunt-karma' );
-  grunt.loadNpmTasks( 'grunt-contrib-watch' );
+  require('load-grunt-tasks')(grunt);
 
   grunt.registerTask( 'build', [
     'jshint',
-    'ngmin:build',
+    'ngAnnotate:build',
     'uglify',
     'clean:tmp',
     'strip:build'
   ]);
 
-  grunt.initConfig({
+  var config = {};
 
-    pkg: grunt.file.readJSON('package.json'),
+  config.pkg = grunt.file.readJSON('package.json');
 
-    meta: {
-      banner:
+  config.meta = {
+    banner:
         '/**\n' +
-          ' * <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
-          ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-          ' * Dual licensed with the Apache-2.0 or MIT license.\n' +
-          ' */\n'
-    },
+            ' * <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+            ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+            ' * Dual licensed with the Apache-2.0 or MIT license.\n' +
+            ' */\n'
+  };
 
-    /**
-     * Clean
-     */
-    clean: {
-      tmp: {
-        src: ["dist/tmp"]
-      }
-    },
+  config.clean = {
+    tmp: {
+      src: ['dist/tmp']
+    }
+  };
 
-    /**
-     * Uglify
-     */
-    uglify: {
+  config.uglify = {
+    options: {
+      preserveComments: 'some',
+      banner: '<%= meta.banner %>'
+    },
+    min: {
       options: {
-        preserveComments: 'some',
-        banner: '<%= meta.banner %>'
+        mangle: true
       },
-      min: {
-        options: {
-          mangle: true
-        },
-        files: {
-          'dist/tc-angular-chartjs.min.js': [
-            'dist/tmp/tc-angular-chartjs.js'
-          ]
-        }
-      },
-      raw: {
-        options: {
-          compress: false,
-          beautify: true,
-          mangle: false
-        },
-        files: {
-          'dist/tc-angular-chartjs.js': [
-            'dist/tmp/tc-angular-chartjs.js'
-          ]
-        }
+      files: {
+        'dist/tc-angular-chartjs.min.js': [
+          'dist/tmp/tc-angular-chartjs.js'
+        ]
       }
     },
-
-    /**
-     * Strip
-     */
-    strip : {
-      build : {
-        src : 'dist/**/*.js',
-        options : {
-          nodes : ['console'],
-          inline : true
-        }
-      }
-    },
-
-    /**
-     * JSHint
-     */
-    jshint: {
+    raw: {
       options: {
-        curly:true,
-        eqeqeq:true,
-        immed:true,
-        latedef:true,
-        newcap:true,
-        noarg:true,
-        sub:true,
-        boss:true,
-        eqnull:true,
-        evil:true,
-        globals:{}
+        compress: false,
+        beautify: true,
+        mangle: false
       },
-      all:['src/tc-angular-chartjs.js', 'Gruntfile.js','test/**/*.js']
-    },
-
-    /**
-     * NGMIN
-     */
-    ngmin: {
-      build: {
-        expand: true,
-        cwd: 'src',
-        src: [
-          'tc-angular-chartjs.js'
-        ],
-        dest: 'dist/tmp'
-      }
-    },
-
-    /**
-     * Watch. Run karma watcher with
-     * grunt karma:unit:start watch
-     */
-    watch: {
-      karma: {
-        files: ['src/*.js', 'test/**/*.js'],
-        tasks: ['karma:unit:run']
-      }
-    },
-
-    /**
-     * Karma
-     */
-    karma: {
-      unit: {
-        configFile: 'test/karma.conf.js',
-        background: true
+      files: {
+        'dist/tc-angular-chartjs.js': [
+          'dist/tmp/tc-angular-chartjs.js'
+        ]
       }
     }
+  };
 
-  });
+  config.strip = {
+    build : {
+      src : 'dist/**/*.js',
+      options : {
+        nodes : ['console'],
+        inline : true
+      }
+    }
+  };
+
+  config.jshint = {
+    src: {
+      options: {
+        jshintrc: '.jshintrc'
+      },
+      files: {
+        src: [
+          'src/tc-angular-chartjs.js',
+          'Gruntfile.js'
+        ]
+      }
+    },
+    tests: {
+      options: {
+        jshintrc: 'test/.jshintrc'
+      },
+      files: {
+        src: [
+          'test/**/*.spec.js'
+        ]
+      }
+    }
+  };
+
+  config.ngAnnotate = {
+    options: {
+    },
+    build: {
+      expand: true,
+      cwd: 'src',
+      src: [
+        'tc-angular-chartjs.js'
+      ],
+      dest: 'dist/tmp'
+    }
+  };
+
+  config.watch = {
+    karma: {
+      files: ['src/*.js', 'test/**/*.js'],
+      tasks: ['karma:unit:run']
+    }
+  };
+
+  config.karma = {
+    unit: {
+      configFile: 'test/karma.conf.js',
+      background: true
+    }
+  };
+
+  grunt.initConfig(config);
+
 };
