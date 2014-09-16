@@ -31,6 +31,7 @@
     "afterEach": true,
     "expect": true,
     "spyOn": true,
-    "inject": true
+    "inject": true,
+    "jasmine": true
   }
 }

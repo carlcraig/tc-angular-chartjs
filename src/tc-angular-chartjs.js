@@ -98,8 +98,10 @@
             if ( value ) {
               if ( chartType ) {
                 chartObj = chart[ cleanChartName( chartType ) ]( $scope.data, $scope.options );
-              } else {
+              } else if ($scope.type) {
                 chartObj = chart[ cleanChartName( $scope.type ) ]( $scope.data, $scope.options );
+              } else {
+                throw 'Error creating chart: Chart type required.';
               }
             }
 
