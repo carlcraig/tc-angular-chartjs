@@ -97,8 +97,14 @@
 
             if ( value ) {
               if ( chartType ) {
+                if ( chartObj ) {
+                  chartObj.destroy();
+                }
                 chartObj = chart[ cleanChartName( chartType ) ]( $scope.data, $scope.options );
               } else if ($scope.type) {
+                if ( chartObj ) {
+                  chartObj.destroy();
+                }
                 chartObj = chart[ cleanChartName( $scope.type ) ]( $scope.data, $scope.options );
               } else {
                 throw 'Error creating chart: Chart type required.';
