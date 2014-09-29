@@ -1,5 +1,5 @@
 /**
- * tc-angular-chartjs - v1.0.4 - 2014-09-16
+ * tc-angular-chartjs - v1.0.5 - 2014-09-29
  * Copyright (c) 2014 Carl Craig <carlcraig@3c-studios.com>
  * Dual licensed with the Apache-2.0 or MIT license.
  */
@@ -74,6 +74,9 @@
                 }
                 $scope.$watch("data", function(value) {
                     if (value) {
+                        if (chartObj) {
+                            chartObj.destroy();
+                        }
                         if (chartType) {
                             chartObj = chart[cleanChartName(chartType)]($scope.data, $scope.options);
                         } else if ($scope.type) {
