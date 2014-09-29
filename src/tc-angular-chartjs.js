@@ -96,6 +96,9 @@
           function ( value ) {
 
             if ( value ) {
+              if ( chartObj ) {
+                chartObj.destroy();
+              }
               if ( chartType ) {
                 chartObj = chart[ cleanChartName( chartType ) ]( $scope.data, $scope.options );
               } else if ($scope.type) {
