@@ -1,5 +1,5 @@
 /**
- * tc-angular-chartjs - v1.0.7 - 2014-10-11
+ * tc-angular-chartjs - v1.0.8 - 2014-10-13
  * Copyright (c) 2014 Carl Craig <carlcraig@3c-studios.com>
  * Dual licensed with the Apache-2.0 or MIT license.
  */
@@ -84,19 +84,19 @@
                         } else {
                             throw "Error creating chart: Chart type required.";
                         }
-                    }
-                    if (showLegend) {
-                        $scope.legend = chartObj.generateLegend();
-                    }
-                    if (autoLegend) {
-                        if (legendElem) {
-                            legendElem.remove();
+                        if (showLegend) {
+                            $scope.legend = chartObj.generateLegend();
                         }
-                        angular.element($elem[0]).after(chartObj.generateLegend());
-                        legendElem = angular.element($elem[0]).next();
-                    }
-                    if (exposeChart) {
-                        $scope.chart = chartObj;
+                        if (autoLegend) {
+                            if (legendElem) {
+                                legendElem.remove();
+                            }
+                            angular.element($elem[0]).after(chartObj.generateLegend());
+                            legendElem = angular.element($elem[0]).next();
+                        }
+                        if (exposeChart) {
+                            $scope.chart = chartObj;
+                        }
                     }
                 }, true);
             }

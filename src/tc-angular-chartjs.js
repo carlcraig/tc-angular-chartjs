@@ -106,22 +106,22 @@
               } else {
                 throw 'Error creating chart: Chart type required.';
               }
-            }
 
-            if ( showLegend ) {
-              $scope.legend = chartObj.generateLegend();
-            }
-
-            if ( autoLegend ) {
-              if ( legendElem ) {
-                legendElem.remove();
+              if ( showLegend ) {
+                $scope.legend = chartObj.generateLegend();
               }
-              angular.element($elem[0]).after( chartObj.generateLegend() );
-              legendElem = angular.element($elem[0] ).next();
-            }
 
-            if ( exposeChart ) {
-              $scope.chart = chartObj;
+              if ( autoLegend ) {
+                if ( legendElem ) {
+                  legendElem.remove();
+                }
+                angular.element($elem[0]).after( chartObj.generateLegend() );
+                legendElem = angular.element($elem[0] ).next();
+              }
+
+              if ( exposeChart ) {
+                $scope.chart = chartObj;
+              }
             }
 
           },
