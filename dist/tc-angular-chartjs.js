@@ -1,18 +1,11 @@
 /**
- * tc-angular-chartjs - v1.0.8 - 2014-10-13
+ * tc-angular-chartjs - v1.0.9 - 2014-10-14
  * Copyright (c) 2014 Carl Craig <carlcraig@3c-studios.com>
  * Dual licensed with the Apache-2.0 or MIT license.
  */
 (function() {
     "use strict";
     angular.module("tc.chartjs", []).directive("tcChartjs", TcChartjs).directive("tcChartjsLine", TcChartjsLine).directive("tcChartjsBar", TcChartjsBar).directive("tcChartjsRadar", TcChartjsRadar).directive("tcChartjsPolararea", TcChartjsPolararea).directive("tcChartjsPie", TcChartjsPie).directive("tcChartjsDoughnut", TcChartjsDoughnut).directive("tcChartjsLegend", TcChartjsLegend).factory("TcChartjsFactory", TcChartjsFactory);
-    TcChartjs.$inject = [ "TcChartjsFactory" ];
-    TcChartjsLine.$inject = [ "TcChartjsFactory" ];
-    TcChartjsBar.$inject = [ "TcChartjsFactory" ];
-    TcChartjsRadar.$inject = [ "TcChartjsFactory" ];
-    TcChartjsPolararea.$inject = [ "TcChartjsFactory" ];
-    TcChartjsPie.$inject = [ "TcChartjsFactory" ];
-    TcChartjsDoughnut.$inject = [ "TcChartjsFactory" ];
     function TcChartjs(TcChartjsFactory) {
         return new TcChartjsFactory();
     }

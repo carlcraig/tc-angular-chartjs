@@ -17,14 +17,6 @@
     .directive( 'tcChartjsLegend', TcChartjsLegend )
     .factory( 'TcChartjsFactory', TcChartjsFactory );
 
-  TcChartjs.$inject = [ 'TcChartjsFactory' ];
-  TcChartjsLine.$inject = [ 'TcChartjsFactory' ];
-  TcChartjsBar.$inject = [ 'TcChartjsFactory' ];
-  TcChartjsRadar.$inject = [ 'TcChartjsFactory' ];
-  TcChartjsPolararea.$inject = [ 'TcChartjsFactory' ];
-  TcChartjsPie.$inject = [ 'TcChartjsFactory' ];
-  TcChartjsDoughnut.$inject = [ 'TcChartjsFactory' ];
-
   function TcChartjs( TcChartjsFactory ) {
     return new TcChartjsFactory();
   }
