@@ -80,8 +80,11 @@ describe('tc-chartjs directive', function() {
       expect(chartInstance.CustomType).toHaveBeenCalledWith($scope.data, $scope.options);
     });
     it('should throw an error if no chart type is supplied', function () {
-      element = $compile('<canvas tc-chartjs chart-data="data" chart-options="options" width="300" height="300"></canvas>')($scope);
-      expect($scope.$digest).toThrow();
+      function testChartTypeRequiredException() {
+        element = $compile('<canvas tc-chartjs chart-data="data" chart-options="options" width="300" height="300"></canvas>')($scope);
+        $scope.$digest();
+      }
+      expect(testChartTypeRequiredException).toThrow('Error creating chart: Chart type required.');
     });
   });
 });
