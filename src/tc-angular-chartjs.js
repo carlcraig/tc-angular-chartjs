@@ -83,6 +83,12 @@
           }
         }
 
+        $scope.$on('$destroy', function() {
+          if ( chartObj ) {
+            chartObj.destroy();
+          }
+        }
+
         $scope.$watch(
           'data',
           function ( value ) {
