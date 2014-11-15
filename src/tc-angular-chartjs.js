@@ -87,7 +87,7 @@
           if ( chartObj ) {
             chartObj.destroy();
           }
-        }
+        });
 
         $scope.$watch(
           'data',
