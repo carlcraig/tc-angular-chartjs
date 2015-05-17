@@ -120,6 +120,7 @@
               if ( exposeChart ) {
                 $scope.chart = chartObj;
               }
+              chartObj.resize();
             }
 
           },
