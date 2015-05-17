@@ -3,13 +3,23 @@ describe('tc-chartjs directive', function() {
   var $compile, $scope, element, chartInstance,
 
   ChartMock = function () {
-    this.Line = jasmine.createSpy('Line');
-    this.Bar = jasmine.createSpy('Bar');
-    this.Radar = jasmine.createSpy('Radar');
-    this.PolarArea = jasmine.createSpy('PolarArea');
-    this.Pie = jasmine.createSpy('Pie');
-    this.Doughnut = jasmine.createSpy('Doughnut');
-    this.CustomType = jasmine.createSpy('customType');
+    this.Line = makeSpy('Line');
+    this.Bar = makeSpy('Bar');
+    this.Radar = makeSpy('Radar');
+    this.PolarArea = makeSpy('PolarArea');
+    this.Pie = makeSpy('Pie');
+    this.Doughnut = makeSpy('Doughnut');
+    this.CustomType = makeSpy('customType');
+  };
+
+  var makeSpy = function(name) {
+    var resize = jasmine.createSpy('resize');
+    var spy = jasmine.createSpy(name).andCallFake(function() {
+      return {
+          resize: resize
+        };
+    });
+    return spy;
   };
 
   beforeEach(module('tc.chartjs'));
@@ -68,20 +78,26 @@ describe('tc-chartjs directive', function() {
       element = $compile('<canvas tc-chartjs-line chart-data="data" chart-options="options" width="300" height="300"></canvas>')($scope);
       $scope.$digest();
       expect(chartInstance.Line).toHaveBeenCalledWith($scope.data, $scope.options);
+      expect(chartInstance.Line().resize).toHaveBeenCalled();
     });
     it('should normalise chart type values', function () {
       element = $compile('<canvas tc-chartjs chart-type="pOlArArEa" chart-data="data" chart-options="options" width="300" height="300"></canvas>')($scope);
       $scope.$digest();
       expect(chartInstance.PolarArea).toHaveBeenCalledWith($scope.data, $scope.options);
+      expect(chartInstance.PolarArea().resize).toHaveBeenCalled();
     });
     it('should pass through unknown types as-is', function () {
       element = $compile('<canvas tc-chartjs chart-type="CustomType" chart-data="data" chart-options="options" width="300" height="300"></canvas>')($scope);
       $scope.$digest();
       expect(chartInstance.CustomType).toHaveBeenCalledWith($scope.data, $scope.options);
+      expect(chartInstance.CustomType().resize).toHaveBeenCalled();
     });
     it('should throw an error if no chart type is supplied', function () {
-      element = $compile('<canvas tc-chartjs chart-data="data" chart-options="options" width="300" height="300"></canvas>')($scope);
-      expect($scope.$digest).toThrow();
+      function testChartTypeRequiredException() {
+        element = $compile('<canvas tc-chartjs chart-data="data" chart-options="options" width="300" height="300"></canvas>')($scope);
+        $scope.$digest();
+      }
+      expect(testChartTypeRequiredException).toThrow('Error creating chart: Chart type required.');
     });
   });
 });
