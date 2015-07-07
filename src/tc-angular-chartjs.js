@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Carl Craig
+ * Copyright 2015 Carl Craig
  * tc-angular-chartjs is dual licensed with the Apache-2.0 or MIT license.
  */
 
@@ -49,7 +49,7 @@
 
     return function ( chartType ) {
 
-      var directive = {
+      return {
         restrict: 'A',
         scope: {
           data: '=chartData',
@@ -60,8 +60,6 @@
         },
         link: link
       };
-
-      return directive;
 
       function link( $scope, $elem, $attrs ) {
 
@@ -153,15 +151,13 @@
 
   function TcChartjsLegend() {
 
-    var directive = {
+    return {
       restrict: 'A',
       scope: {
         legend: '=chartLegend'
       },
       link: link
     };
-
-    return directive;
 
     function link( $scope, $elem ) {
 
