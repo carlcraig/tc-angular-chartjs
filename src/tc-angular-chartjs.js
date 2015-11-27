@@ -56,7 +56,8 @@
           options: '=chartOptions',
           type: '@chartType',
           legend: '=chartLegend',
-          chart: '=chart'
+          chart: '=chart',
+          click: '&chartClick'
         },
         link: link
       };
@@ -86,6 +87,13 @@
             chartObj.destroy();
           }
         });
+
+        if ($scope.click) {
+          $elem[0].onclick = function (evt) {
+            var segment = chartObj.getSegmentsAtEvent(evt);
+            $scope.click({data: segment, event: evt});
+          };
+        }
 
         $scope.$watch(
           'data',

@@ -1,5 +1,5 @@
 /**
- * tc-angular-chartjs - v1.0.12 - 2015-07-08
+ * tc-angular-chartjs - v1.0.12 - 2015-11-27
  * Copyright (c) 2015 Carl Craig <carlcraig.threeceestudios@gmail.com>
  * Dual licensed with the Apache-2.0 or MIT license.
  */
@@ -43,7 +43,8 @@
                     options: "=chartOptions",
                     type: "@chartType",
                     legend: "=chartLegend",
-                    chart: "=chart"
+                    chart: "=chart",
+                    click: "&chartClick"
                 },
                 link: link
             };
@@ -69,6 +70,15 @@
                         chartObj.destroy();
                     }
                 });
+                if ($scope.click) {
+                    $elem[0].onclick = function(evt) {
+                        var segment = chartObj.getSegmentsAtEvent(evt);
+                        $scope.click({
+                            data: segment,
+                            event: evt
+                        });
+                    };
+                }
                 $scope.$watch("data", function(value) {
                     if (value) {
                         if (chartObj) {
