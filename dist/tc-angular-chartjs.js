@@ -1,5 +1,5 @@
 /**
- * tc-angular-chartjs - v1.0.12 - 2015-11-27
+ * tc-angular-chartjs - v1.0.12 - 2015-12-30
  * Copyright (c) 2015 Carl Craig <carlcraig.threeceestudios@gmail.com>
  * Dual licensed with the Apache-2.0 or MIT license.
  */
@@ -71,8 +71,16 @@
                     }
                 });
                 if ($scope.click) {
+                    0;
                     $elem[0].onclick = function(evt) {
-                        var segment = chartObj.getSegmentsAtEvent(evt);
+                        var segment;
+                        if (chartObj.getSegmentsAtEvent !== undefined) {
+                            segment = chartObj.getSegmentsAtEvent(evt);
+                        } else if (chartObj.getPointsAtEvent !== undefined) {
+                            segment = chartObj.getPointsAtEvent(evt);
+                        } else if (chartObj.getBarsAtEvent !== undefined) {
+                            segment = chartObj.getBarsAtEvent(evt);
+                        }
                         $scope.click({
                             data: segment,
                             event: evt
