@@ -90,7 +90,14 @@
 
         if ($scope.click) {
           $elem[0].onclick = function (evt) {
-            var segment = chartObj.getSegmentsAtEvent(evt);
+            var segment;
+
+            if (chartObj.getSegmentsAtEvent !== undefined) {
+              segment = chartObj.getSegmentsAtEvent(evt);
+            } else if (chartObj.getPointsAtEvent !== undefined) {
+              segment = chartObj.getPointsAtEvent(evt);
+            }
+
             $scope.click({data: segment, event: evt});
           };
         }
