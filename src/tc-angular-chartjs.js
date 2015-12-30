@@ -96,6 +96,8 @@
               segment = chartObj.getSegmentsAtEvent(evt);
             } else if (chartObj.getPointsAtEvent !== undefined) {
               segment = chartObj.getPointsAtEvent(evt);
+            } else if (chartObj.getBarsAtEvent !== undefined) {
+              segment = chartObj.getBarsAtEvent(evt);
             }
 
             $scope.click({data: segment, event: evt});
