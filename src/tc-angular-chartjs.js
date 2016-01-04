@@ -56,7 +56,8 @@
           options: '=chartOptions',
           type: '@chartType',
           legend: '=chartLegend',
-          chart: '=chart'
+          chart: '=chart',
+          click: '&chartClick'
         },
         link: link
       };
@@ -86,6 +87,22 @@
             chartObj.destroy();
           }
         });
+
+        if ($scope.click) {
+          $elem[0].onclick = function (evt) {
+            var segment;
+
+            if (chartObj.getSegmentsAtEvent !== undefined) {
+              segment = chartObj.getSegmentsAtEvent(evt);
+            } else if (chartObj.getPointsAtEvent !== undefined) {
+              segment = chartObj.getPointsAtEvent(evt);
+            } else if (chartObj.getBarsAtEvent !== undefined) {
+              segment = chartObj.getBarsAtEvent(evt);
+            }
+
+            $scope.click({data: segment, event: evt});
+          };
+        }
 
         $scope.$watch(
           'data',
