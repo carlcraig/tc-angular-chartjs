@@ -1,6 +1,6 @@
 /**
- * tc-angular-chartjs - v1.0.12 - 2015-12-30
- * Copyright (c) 2015 Carl Craig <carlcraig.threeceestudios@gmail.com>
+ * tc-angular-chartjs - v1.0.13 - 2016-01-04
+ * Copyright (c) 2016 Carl Craig <carlcraig.threeceestudios@gmail.com>
  * Dual licensed with the Apache-2.0 or MIT license.
  */
 (function() {
@@ -71,7 +71,6 @@
                     }
                 });
                 if ($scope.click) {
-                    0;
                     $elem[0].onclick = function(evt) {
                         var segment;
                         if (chartObj.getSegmentsAtEvent !== undefined) {
