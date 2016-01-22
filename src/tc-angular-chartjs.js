@@ -55,8 +55,8 @@
           data: '=chartData',
           options: '=chartOptions',
           type: '@chartType',
-          legend: '=chartLegend',
-          chart: '=chart',
+          legend: '=?chartLegend',
+          chart: '=?chart',
           click: '&chartClick'
         },
         link: link
@@ -171,7 +171,7 @@
     return {
       restrict: 'A',
       scope: {
-        legend: '=chartLegend'
+        legend: '=?chartLegend'
       },
       link: link
     };
