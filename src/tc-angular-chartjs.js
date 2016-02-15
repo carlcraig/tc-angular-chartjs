@@ -83,7 +83,7 @@
         }
 
         $scope.$on('$destroy', function() {
-          if ( chartObj ) {
+          if ( chartObj && typeof chartObj.destroy === 'function' ) {
             chartObj.destroy();
           }
         });
@@ -109,7 +109,7 @@
           function ( value ) {
 
             if ( value ) {
-              if ( chartObj ) {
+              if ( chartObj && typeof chartObj.destroy === 'function' ) {
                 chartObj.destroy();
               }
               if ( chartType ) {
