@@ -1,5 +1,5 @@
 /**
- * tc-angular-chartjs - v1.0.14 - 2016-02-15
+ * tc-angular-chartjs - v1.0.15 - 2016-02-15
  * Copyright (c) 2016 Carl Craig <carlcraig.threeceestudios@gmail.com>
  * Dual licensed with the Apache-2.0 or MIT license.
  */
@@ -66,7 +66,7 @@
                     }
                 }
                 $scope.$on("$destroy", function() {
-                    if (chartObj) {
+                    if (chartObj && typeof chartObj.destroy === "function") {
                         chartObj.destroy();
                     }
                 });
@@ -88,7 +88,7 @@
                 }
                 $scope.$watch("data", function(value) {
                     if (value) {
-                        if (chartObj) {
+                        if (chartObj && typeof chartObj.destroy === "function") {
                             chartObj.destroy();
                         }
                         if (chartType) {
