@@ -82,68 +82,7 @@
     </p>
     <h3>JS Code</h3>
     <p>
-<pre class="language-javascript"><code class="language-javascript">angular
-  .module( 'myModule', [ 'tc.chartjs' ])
-  .controller( 'myController', function( $scope ) {
-
-    // Chart.js Data
-    $scope.data = [
-      {
-        value: 300,
-        color:'#F7464A',
-        highlight: '#FF5A5E',
-        label: 'Red'
-      },
-      {
-        value: 50,
-        color: '#46BFBD',
-        highlight: '#5AD3D1',
-        label: 'Green'
-      },
-      {
-        value: 100,
-        color: '#FDB45C',
-        highlight: '#FFC870',
-        label: 'Yellow'
-      }
-    ];
-
-    // Chart.js Options
-    $scope.options =  {
-
-      // Sets the chart to be responsive
-      responsive: true,
-
-      //Boolean - Whether we should show a stroke on each segment
-      segmentShowStroke : true,
-
-      //String - The colour of each segment stroke
-      segmentStrokeColor : '#fff',
-
-      //Number - The width of each segment stroke
-      segmentStrokeWidth : 2,
-
-      //Number - The percentage of the chart that we cut out of the middle
-      percentageInnerCutout : 50, // This is 0 for Pie charts
-
-      //Number - Amount of animation steps
-      animationSteps : 100,
-
-      //String - Animation easing effect
-      animationEasing : 'easeOutBounce',
-
-      //Boolean - Whether we animate the rotation of the Doughnut
-      animateRotate : true,
-
-      //Boolean - Whether we animate scaling the Doughnut from the centre
-      animateScale : false,
-
-      //String - A legend template
-      legendTemplate : '&lt;ul class="tc-chart-js-legend"&gt;&lt;% for (var i=0; i&lt;segments.length; i++){%&gt;&lt;li&gt;&lt;span style="background-color:&lt;%=segments[i].fillColor%&gt;"&gt;&lt;/span&gt;&lt;%if(segments[i].label){%&gt;&lt;%=segments[i].label%&gt;&lt;%}%&gt;&lt;/li&gt;&lt;%}%&gt;&lt;/ul&gt;'
-
-    };
-
-  });
+<pre class="language-javascript"><code class="language-javascript">TODO
 </code></pre>
     </p>
   </div>
@@ -184,6 +123,7 @@
 <script src="../js/polararea.js"></script>
 <script src="../js/pie.js"></script>
 <script src="../js/doughnut.js"></script>
+<script src="../js/randoms.js"></script>
 <script>
   $(document).foundation();
 </script>

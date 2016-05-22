@@ -67,7 +67,20 @@
     <p>
 <pre class="language-javascript"><code class="language-javascript">$scope.options = {
   // ...
-    legendTemplate : '&lt;ul class="tc-chart-js-legend"&gt;&lt;% for (var i=0; i&lt;datasets.length; i++){%&gt;&lt;li&gt;&lt;span style="background-color:&lt;%=datasets[i].strokeColor%&gt;"&gt;&lt;/span&gt;&lt;%if(datasets[i].label){%&gt;&lt;%=datasets[i].label%&gt;&lt;%}%&gt;&lt;/li&gt;&lt;%}%&gt;&lt;/ul&gt;'
+      legendCallback: function(chart) {
+        var text = [];
+        text.push('<ul class="tc-chart-js-legend">');
+        for (var i = 0; i < chart.data.datasets.length; i++) {
+          text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>');
+          if (chart.data.datasets[i].label) {
+            text.push(chart.data.datasets[i].label);
+          }
+          text.push('</li>');
+        }
+        text.push('</ul>');
+
+        return text.join("");
+      },
   // ...
 };
 </code></pre>
@@ -176,6 +189,7 @@
 <script src="../js/polararea.js"></script>
 <script src="../js/pie.js"></script>
 <script src="../js/doughnut.js"></script>
+<script src="../js/randoms.js"></script>
 <script>
   $(document).foundation();
 </script>

@@ -8,18 +8,14 @@ angular
       datasets: [
         {
           label: 'My First dataset',
-          fillColor: 'rgba(220,220,220,0.5)',
-          strokeColor: 'rgba(220,220,220,0.8)',
-          highlightFill: 'rgba(220,220,220,0.75)',
-          highlightStroke: 'rgba(220,220,220,1)',
+          backgroundColor: 'rgba(220,220,220,0.5)',
+          borderColor: 'rgba(220,220,220,1)',
           data: [65, 59, 80, 81, 56, 55, 40]
         },
         {
           label: 'My Second dataset',
-          fillColor: 'rgba(151,187,205,0.5)',
-          strokeColor: 'rgba(151,187,205,0.8)',
-          highlightFill: 'rgba(151,187,205,0.75)',
-          highlightStroke: 'rgba(151,187,205,1)',
+          backgroundColor: 'rgba(151,187,205,0.5)',
+          borderColor: 'rgba(151,187,205,1)',
           data: [28, 48, 40, 19, 86, 27, 90]
         }
       ]
@@ -27,35 +23,53 @@ angular
 
     $scope.options =  {
 
-      // Sets the chart to be responsive
-      responsive: true,
+      elements: {
+        rectangle: {
+          borderWidth: 2,
+          borderColor: 'rgb(0, 255, 0)',
+          borderSkipped: 'bottom'
+        }
+      },
 
-      //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-      scaleBeginAtZero : true,
+      legend: {
+        display: false
+      },
 
-      //Boolean - Whether grid lines are shown across the chart
-      scaleShowGridLines : true,
+      scales: {
+        xAxes: [{
+          barPercentage: 0.95,
+          categoryPercentage: 0.9
+        }]
+      },
 
-      //String - Colour of the grid lines
-      scaleGridLineColor : "rgba(0,0,0,.05)",
+      legendCallback: function(chart) {
+        var text = [];
+        text.push('<ul class="tc-chart-js-legend">');
+        for (var i = 0; i < chart.data.datasets.length; i++) {
+          text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>');
+          if (chart.data.datasets[i].label) {
+            text.push(chart.data.datasets[i].label);
+          }
+          text.push('</li>');
+        }
+        text.push('</ul>');
 
-      //Number - Width of the grid lines
-      scaleGridLineWidth : 1,
+        return text.join("");
+      },
 
-      //Boolean - If there is a stroke on each bar
-      barShowStroke : true,
-
-      //Number - Pixel width of the bar stroke
-      barStrokeWidth : 2,
-
-      //Number - Spacing between each of the X value sets
-      barValueSpacing : 5,
-
-      //Number - Spacing between data sets within X values
-      barDatasetSpacing : 1,
-
-      //String - A legend template
-      legendTemplate : '<ul class="tc-chart-js-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].fillColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
+      // Need to override these to give a nice default
+      tooltips: {
+        callbacks: {
+          label: function(tooltipItem, data) {
+            var result = [];
+            var datasetIndex;
+            for (datasetIndex = 0; datasetIndex < data.datasets.length; datasetIndex++) {
+              result.push(data.datasets[datasetIndex].label + ': ' + data.datasets[datasetIndex].data[tooltipItem.index]);
+            }
+            return result;
+          }
+        }
+      }
     };
 
   });

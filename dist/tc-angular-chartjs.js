@@ -1,5 +1,5 @@
 /**
- * tc-angular-chartjs - v1.0.15 - 2016-02-15
+ * tc-angular-chartjs - v2.0.0 - 2016-05-23
  * Copyright (c) 2016 Carl Craig <carlcraig.threeceestudios@gmail.com>
  * Dual licensed with the Apache-2.0 or MIT license.
  */
@@ -50,7 +50,6 @@
             };
             function link($scope, $elem, $attrs) {
                 var ctx = $elem[0].getContext("2d");
-                var chart = new Chart(ctx);
                 var chartObj;
                 var showLegend = false;
                 var autoLegend = false;
@@ -72,17 +71,14 @@
                 });
                 if ($scope.click) {
                     $elem[0].onclick = function(evt) {
-                        var segment;
-                        if (chartObj.getSegmentsAtEvent !== undefined) {
-                            segment = chartObj.getSegmentsAtEvent(evt);
-                        } else if (chartObj.getPointsAtEvent !== undefined) {
-                            segment = chartObj.getPointsAtEvent(evt);
-                        } else if (chartObj.getBarsAtEvent !== undefined) {
-                            segment = chartObj.getBarsAtEvent(evt);
-                        }
+                        var out = {
+                            chartEvent: event,
+                            element: chartObj.getElementAtEvent(evt),
+                            elements: chartObj.getElementsAtEvent(evt),
+                            dataset: chartObj.getDatasetAtEvent(evt)
+                        };
                         $scope.click({
-                            data: segment,
-                            event: evt
+                            event: out
                         });
                     };
                 }
@@ -91,13 +87,16 @@
                         if (chartObj && typeof chartObj.destroy === "function") {
                             chartObj.destroy();
                         }
-                        if (chartType) {
-                            chartObj = chart[cleanChartName(chartType)]($scope.data, $scope.options);
-                        } else if ($scope.type) {
-                            chartObj = chart[cleanChartName($scope.type)]($scope.data, $scope.options);
-                        } else {
+                        var type = chartType || $scope.type;
+                        if (!type) {
                             throw "Error creating chart: Chart type required.";
                         }
+                        type = cleanChartName(type);
+                        chartObj = new Chart(ctx, {
+                            type: type,
+                            data: angular.copy($scope.data),
+                            options: $scope.options
+                        });
                         if (showLegend) {
                             $scope.legend = chartObj.generateLegend();
                         }
@@ -118,23 +117,8 @@
             function cleanChartName(type) {
                 var typeLowerCase = type.toLowerCase();
                 switch (typeLowerCase) {
-                  case "line":
-                    return "Line";
-
-                  case "bar":
-                    return "Bar";
-
-                  case "radar":
-                    return "Radar";
-
                   case "polararea":
-                    return "PolarArea";
-
-                  case "pie":
-                    return "Pie";
-
-                  case "doughnut":
-                    return "Doughnut";
+                    return "polarArea";
 
                   default:
                     return type;

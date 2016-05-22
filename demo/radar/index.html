@@ -83,95 +83,74 @@
     <h3>JS Code</h3>
     <p>
 <pre class="language-javascript"><code class="language-javascript">angular
-  .module( 'myModule', [ 'tc.chartjs' ])
-  .controller( 'myController', function( $scope ) {
+  .module( 'app.radar', [] )
+  .controller( 'RadarCtrl', function ( $scope ) {
 
-    // Chart.js Data
     $scope.data = {
       labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
       datasets: [
         {
           label: 'My First dataset',
-          fillColor: 'rgba(220,220,220,0.2)',
-          strokeColor: 'rgba(220,220,220,1)',
-          pointColor: 'rgba(220,220,220,1)',
-          pointStrokeColor: '#fff',
-          pointHighlightFill: '#fff',
-          pointHighlightStroke: 'rgba(220,220,220,1)',
-          data: [65, 59, 90, 81, 56, 55, 40]
+          backgroundColor: 'rgba(220,220,220,0.2)',
+          borderColor: 'rgba(220,220,220,1)',
+          pointBackgroundColor: 'rgba(220,220,220,1)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          data: [65, 59, 80, 81, 56, 55, 40]
         },
         {
           label: 'My Second dataset',
-          fillColor: 'rgba(151,187,205,0.2)',
-          strokeColor: 'rgba(151,187,205,1)',
-          pointColor: 'rgba(151,187,205,1)',
-          pointStrokeColor: '#fff',
-          pointHighlightFill: '#fff',
-          pointHighlightStroke: 'rgba(151,187,205,1)',
+          backgroundColor: 'rgba(151,187,205,0.2)',
+          borderColor: 'rgba(151,187,205,1)',
+          pointBackgroundColor: 'rgba(151,187,205,1)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(151,187,205,1)',
           data: [28, 48, 40, 19, 96, 27, 100]
         }
       ]
     };
 
-    // Chart.js Options
     $scope.options =  {
+      elements: {
+        point: {
+          radius: 5
+        }
+      },
 
-      // Sets the chart to be responsive
-      responsive: true,
+      legend: {
+        display: false
+      },
 
-      //Boolean - Whether to show lines for each scale point
-      scaleShowLine : true,
+      legendCallback: function(chart) {
+        var text = [];
+        text.push('<ul class="tc-chart-js-legend">');
+        for (var i = 0; i < chart.data.datasets.length; i++) {
+          text.push('<li><span style="background-color:' + chart.data.datasets[i].borderColor + '"></span>');
+          if (chart.data.datasets[i].label) {
+            text.push(chart.data.datasets[i].label);
+          }
+          text.push('</li>');
+        }
+        text.push('</ul>');
 
-      //Boolean - Whether we show the angle lines out of the radar
-      angleShowLineOut : true,
+        return text.join("");
+      },
 
-      //Boolean - Whether to show labels on the scale
-      scaleShowLabels : false,
-
-      // Boolean - Whether the scale should begin at zero
-      scaleBeginAtZero : true,
-
-      //String - Colour of the angle line
-      angleLineColor : 'rgba(0,0,0,.1)',
-
-      //Number - Pixel width of the angle line
-      angleLineWidth : 1,
-
-      //String - Point label font declaration
-      pointLabelFontFamily : '"Arial"',
-
-      //String - Point label font weight
-      pointLabelFontStyle : 'normal',
-
-      //Number - Point label font size in pixels
-      pointLabelFontSize : 10,
-
-      //String - Point label font colour
-      pointLabelFontColor : '#666',
-
-      //Boolean - Whether to show a dot for each point
-      pointDot : true,
-
-      //Number - Radius of each point dot in pixels
-      pointDotRadius : 3,
-
-      //Number - Pixel width of point dot stroke
-      pointDotStrokeWidth : 1,
-
-      //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-      pointHitDetectionRadius : 20,
-
-      //Boolean - Whether to show a stroke for datasets
-      datasetStroke : true,
-
-      //Number - Pixel width of dataset stroke
-      datasetStrokeWidth : 2,
-
-      //Boolean - Whether to fill the dataset with a colour
-      datasetFill : true,
-
-      //String - A legend template
-      legendTemplate : '&lt;ul class="tc-chart-js-legend"&gt;&lt;% for (var i=0; i&lt;datasets.length; i++){%&gt;&lt;li&gt;&lt;span style="background-color:&lt;%=datasets[i].strokeColor%&gt;"&gt;&lt;/span&gt;&lt;%if(datasets[i].label){%&gt;&lt;%=datasets[i].label%&gt;&lt;%}%&gt;&lt;/li&gt;&lt;%}%&gt;&lt;/ul&gt;'
+      // Need to override these to give a nice default
+      tooltips: {
+        callbacks: {
+          label: function(tooltipItem, data) {
+            var result = [];
+            var datasetIndex;
+            for (datasetIndex = 0; datasetIndex < data.datasets.length; datasetIndex++) {
+              result.push(data.datasets[datasetIndex].label + ': ' + data.datasets[datasetIndex].data[tooltipItem.index]);
+            }
+            return result;
+          }
+        }
+      }
     };
 
   });
@@ -215,6 +194,7 @@
 <script src="../js/polararea.js"></script>
 <script src="../js/pie.js"></script>
 <script src="../js/doughnut.js"></script>
+<script src="../js/randoms.js"></script>
 <script>
   $(document).foundation();
 </script>
