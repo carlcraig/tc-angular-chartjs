@@ -1,5 +1,5 @@
 /**
- * tc-angular-chartjs - v2.0.0 - 2016-05-23
+ * tc-angular-chartjs - v2.0.0 - 2016-05-28
  * Copyright (c) 2016 Carl Craig <carlcraig.threeceestudios@gmail.com>
  * Dual licensed with the Apache-2.0 or MIT license.
  */
