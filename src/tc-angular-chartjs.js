@@ -63,9 +63,7 @@
       };
 
       function link( $scope, $elem, $attrs ) {
-
         var ctx = $elem[0].getContext( '2d' );
-        var chart = new Chart( ctx );
         var chartObj;
         var showLegend = false;
         var autoLegend = false;
@@ -89,37 +87,38 @@
         });
 
         if ($scope.click) {
-          $elem[0].onclick = function (evt) {
-            var segment;
+          $elem[0].onclick = function(evt) {
+            var out = {
+              chartEvent: event,
+              element: chartObj.getElementAtEvent(evt),
+              elements: chartObj.getElementsAtEvent(evt),
+              dataset: chartObj.getDatasetAtEvent(evt)
+            };
 
-            if (chartObj.getSegmentsAtEvent !== undefined) {
-              segment = chartObj.getSegmentsAtEvent(evt);
-            } else if (chartObj.getPointsAtEvent !== undefined) {
-              segment = chartObj.getPointsAtEvent(evt);
-            } else if (chartObj.getBarsAtEvent !== undefined) {
-              segment = chartObj.getBarsAtEvent(evt);
-            }
-
-            $scope.click({data: segment, event: evt});
+            $scope.click({event: out});
           };
         }
 
         $scope.$watch(
           'data',
           function ( value ) {
-
             if ( value ) {
               if ( chartObj && typeof chartObj.destroy === 'function' ) {
                 chartObj.destroy();
               }
-              if ( chartType ) {
-                chartObj = chart[ cleanChartName( chartType ) ]( $scope.data, $scope.options );
-              } else if ($scope.type) {
-                chartObj = chart[ cleanChartName( $scope.type ) ]( $scope.data, $scope.options );
-              } else {
+
+              var type = chartType || $scope.type;
+              if (!type) {
                 throw 'Error creating chart: Chart type required.';
               }
+              type = cleanChartName(type);
 
+              chartObj = new Chart(ctx, {
+                type: type,
+                data: angular.copy($scope.data), // Copy so no digest loop occurs
+                options: $scope.options
+              });
+              
               if ( showLegend ) {
                 $scope.legend = chartObj.generateLegend();
               }
@@ -137,27 +136,14 @@
               }
               chartObj.resize();
             }
-
-          },
-          true
-        );
+        }, true);
       }
 
       function cleanChartName( type ) {
         var typeLowerCase = type.toLowerCase();
         switch ( typeLowerCase ) {
-          case 'line':
-            return 'Line';
-          case 'bar':
-            return 'Bar';
-          case 'radar':
-            return 'Radar';
           case 'polararea':
-            return 'PolarArea';
-          case 'pie':
-            return 'Pie';
-          case 'doughnut':
-            return 'Doughnut';
+            return 'polarArea';
           default:
             return type;
         }
