@@ -135,7 +135,12 @@
               if ( exposeChart ) {
                 $scope.chart = chartObj;
               }
-              chartObj.resize();
+
+              if (angular.isFunction(chartObj.update)) {
+                chartObj.update();
+              } else {
+                chartObj.resize();
+              }
             }
 
           },

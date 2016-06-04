@@ -3,22 +3,22 @@ describe('tc-chartjs directive', function () {
 
   var $compile, $scope, element, chartInstance,
 
-    ChartMock = function () {
-      this.Line = makeSpy('Line');
-      this.Bar = makeSpy('Bar');
-      this.Radar = makeSpy('Radar');
-      this.PolarArea = makeSpy('PolarArea');
-      this.Pie = makeSpy('Pie');
-      this.Doughnut = makeSpy('Doughnut');
-      this.CustomType = makeSpy('customType');
-    };
+  ChartMock = function () {
+    this.Line = makeSpy('Line');
+    this.Bar = makeSpy('Bar');
+    this.Radar = makeSpy('Radar');
+    this.PolarArea = makeSpy('PolarArea');
+    this.Pie = makeSpy('Pie');
+    this.Doughnut = makeSpy('Doughnut');
+    this.CustomType = makeSpy('customType');
+  };
 
   var makeSpy = function (name) {
-    var resize = jasmine.createSpy('resize');
+    var update = jasmine.createSpy('update');
     var generateLegend = jasmine.createSpy('generateLegend');
     return jasmine.createSpy(name).and.callFake(function () {
       return {
-        resize: resize,
+        update: update,
         generateLegend: generateLegend
       };
     });
@@ -85,21 +85,21 @@ describe('tc-chartjs directive', function () {
       element = $compile('<canvas tc-chartjs-line chart-data="data" chart-options="options" width="300" height="300"></canvas>')($scope);
       $scope.$digest();
       expect(chartInstance.Line).toHaveBeenCalledWith($scope.data, $scope.options);
-      expect(chartInstance.Line().resize).toHaveBeenCalled();
+      expect(chartInstance.Line().update).toHaveBeenCalled();
     });
 
     it('should normalise chart type values', function () {
       element = $compile('<canvas tc-chartjs chart-type="pOlArArEa" chart-data="data" chart-options="options" width="300" height="300"></canvas>')($scope);
       $scope.$digest();
       expect(chartInstance.PolarArea).toHaveBeenCalledWith($scope.data, $scope.options);
-      expect(chartInstance.PolarArea().resize).toHaveBeenCalled();
+      expect(chartInstance.PolarArea().update).toHaveBeenCalled();
     });
 
     it('should pass through unknown types as-is', function () {
       element = $compile('<canvas tc-chartjs chart-type="CustomType" chart-data="data" chart-options="options" width="300" height="300"></canvas>')($scope);
       $scope.$digest();
       expect(chartInstance.CustomType).toHaveBeenCalledWith($scope.data, $scope.options);
-      expect(chartInstance.CustomType().resize).toHaveBeenCalled();
+      expect(chartInstance.CustomType().update).toHaveBeenCalled();
     });
 
     it('should throw an error if no chart type is supplied', function () {
@@ -110,7 +110,27 @@ describe('tc-chartjs directive', function () {
 
       expect(testChartTypeRequiredException).toThrow('Error creating chart: Chart type required.');
     });
-
   });
 
+  describe('Chart.js resize() backward compatibility', function() {
+    beforeEach(function() {
+      makeSpy = function (name) {
+        var resize = jasmine.createSpy('resize');
+        var generateLegend = jasmine.createSpy('generateLegend');
+        return jasmine.createSpy(name).and.callFake(function () {
+          return {
+            resize: resize,
+            generateLegend: generateLegend
+          };
+        });
+      };
+    });
+
+    it('tc-chartjs directive should call Chart.js resize() if update() is not available', function() {
+      element = $compile('<canvas tc-chartjs-line chart-data="data" chart-options="options" width="300" height="300"></canvas>')($scope);
+      $scope.$digest();
+      expect(chartInstance.Line).toHaveBeenCalledWith($scope.data, $scope.options);
+      expect(chartInstance.Line().resize).toHaveBeenCalled();
+    });
+  });
 });

@@ -1,5 +1,5 @@
 /**
- * tc-angular-chartjs - v1.0.15 - 2016-02-15
+ * tc-angular-chartjs - v1.0.16 - 2016-06-03
  * Copyright (c) 2016 Carl Craig <carlcraig.threeceestudios@gmail.com>
  * Dual licensed with the Apache-2.0 or MIT license.
  */
@@ -111,7 +111,11 @@
                         if (exposeChart) {
                             $scope.chart = chartObj;
                         }
-                        chartObj.resize();
+                        if (angular.isFunction(chartObj.update)) {
+                            chartObj.update();
+                        } else {
+                            chartObj.resize();
+                        }
                     }
                 }, true);
             }
