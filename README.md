@@ -16,23 +16,7 @@ npm install tc-angular-chartjs --save
 
 #### bower
 
-Bower support has been dropped but you can still use tc-angular-chartjs with Bower thanks to [bower-npm-resolver](https://www.npmjs.com/package/bower-npm-resolver).
-
-First, add the resolver in your .bowerrc file:
-```json
-{
-  "resolvers": [
-    "bower-npm-resolver"
-  ]
-}
-```
-
-Then:
-
-```bash
-npm install -g bower-npm-resolver
-bower install npm:tc-angular-chartjs --save
-```
+Bower support has been dropped but you can still use tc-angular-chartjs with Bower using [bower-npm-resolver](https://www.npmjs.com/package/bower-npm-resolver).
 
 #### download
 
