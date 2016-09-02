@@ -8,7 +8,7 @@ module.exports = function (config) {
     plugins : ['karma-jasmine', 'karma-phantomjs-launcher'],
 
     files: [
-      'bower_components/Chart.js/dist/Chart.js',
+      'node_modules/chart.js/dist/Chart.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'src/tc-angular-chartjs.js',
