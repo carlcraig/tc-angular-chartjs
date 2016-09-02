@@ -11,7 +11,7 @@ Ensure you have [installed Chart.js](http://www.chartjs.org/docs/#getting-starte
 #### npm
 
 ```bash
-npm install chart.js --save
+npm install tc-angular-chartjs --save
 ```
 
 #### bower
