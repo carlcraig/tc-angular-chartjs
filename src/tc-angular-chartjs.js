@@ -89,7 +89,7 @@
         if ($scope.click) {
           $elem[0].onclick = function(evt) {
             var out = {
-              chartEvent: event,
+              chartEvent: evt,
               element: chartObj.getElementAtEvent(evt),
               elements: chartObj.getElementsAtEvent(evt),
               dataset: chartObj.getDatasetAtEvent(evt)
