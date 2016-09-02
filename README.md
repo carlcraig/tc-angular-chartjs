@@ -1,49 +1,54 @@
-tc-angular-chartjs
-==================
+# tc-angular-chartjs
+
+> AngularJS directives for [Chart.js](http://www.chartjs.org/)
 
 [![Build Status](https://travis-ci.org/carlcraig/tc-angular-chartjs.svg)](https://travis-ci.org/carlcraig/tc-angular-chartjs)
 
-[Documentation](http://carlcraig.github.io/tc-angular-chartjs/)
+## Installation
 
-### Add Chart.js to your angular applications
+Ensure you have [installed Chart.js](http://www.chartjs.org/docs/#getting-started-installation)
 
-tc-angular-chartjs provides you with directives for all chartjs chart types.
+#### npm
 
-- Line Charts
-- Bar Charts
-- Radar Charts
-- Polar Area Charts
-- Pie Charts
-- Doughnut Charts
-
-You can see all the [Chart.js Documentation](http://www.chartjs.org/docs/) on their website.
-
-Installation
-============
-
-Grab the latest version of `Chart.js` and `tc-angular-chartjs`.
-
-Load `Chart.js` and `tc-angular-chartjs` as you would with normal scripts.
-
-```html
-<script type="text/javascript" src="js/Chart.js"></script>
-<script type="text/javascript" src="js/angular.js"></script>
-<script type="text/javascript" src="js/tc-angular-chartjs.js"></script>
+```bash
+npm install chart.js --save
 ```
 
-Make sure you use `dist/tc-angular-chartjs.js` or `dist/tc-angular-chartjs.min.js`
+#### bower
 
-Require `tc.chartjs` in your application modules where you require `Chart.js`.
+Bower support has been dropped but you can still use tc-angular-chartjs with Bower thanks to [bower-npm-resolver](https://www.npmjs.com/package/bower-npm-resolver).
+
+First, add the resolver in your .bowerrc file:
+```json
+{
+  "resolvers": [
+    "bower-npm-resolver"
+  ]
+}
+```
+
+Then:
+
+```bash
+npm install -g bower-npm-resolver
+bower install npm:tc-angular-chartjs --save
+```
+
+#### download
+
+You can download the source archive from the github [releases](https://github.com/carlcraig/tc-angular-chartjs/releases) page.
+
+Just include `dist/tc-angular-chartjs.js` into your project.
+
+## Basic Usage
+
+Add `tc.chartjs` to your modules dependencies e.g.
 
 ```javascript
 angular.module( 'app', ['tc.chartjs']);
 ```
 
-Basic Usage
-===========
-
-There are 6 different directives.
-
+You will then have access to the following directives:
 - tc-chartjs
 - tc-chartjs-line
 - tc-chartjs-bar
@@ -54,26 +59,31 @@ There are 6 different directives.
 
 Just place one of these directives on a `canvas` element to create a Chart.js chart.
 
-```html
-<canvas tc-chartjs-doughnut width="350" height="350"></canvas>
-```
+You will also want to give the chart some `data` and `options`. These can be provided via the `chart-options` and `chart-data` attributes.
 
-You will also want to give the chart some `data` and `options`. These can be provided
-by assigning $scope variables to `chart-options` and `chart-data` attributes on the same canvas element.
+You can also handle chart clicks via the `chart-click` attribute.
+
+Example Pie Chart
 
 ```html
-<canvas tc-chartjs-doughnut chart-data="myData" chart-options="myOptions" chart-click="onChartClick(event)" width="350" height="350"></canvas>
+<canvas
+  tc-chartjs-pie
+  chart-data="myData"
+  chart-options="myOptions"
+  chart-click="onChartClick(event)"
+  width="350"
+  height="350"
+></canvas>
 ```
 ```javascript
-$scope.myData = [
-  { value : 50, color : "#F7464A" },
-  { value : 90, color : "#E2EAE9" },
-  { value : 75, color : "#D4CCC5" },
-  { value : 30, color : "#949FB1"}
-];
+$scope.myData = {
+  // Chart.js data structure goes here
+  // e.g. Pie Chart Data Structure http://www.chartjs.org/docs/#doughnut-pie-chart-data-structure
+};
 
 $scope.myOptions =  {
-  // Chart.js options can go here.
+  // Chart.js options go here
+  // e.g. Pie Chart Options http://www.chartjs.org/docs/#doughnut-pie-chart-chart-options
 };
 
 $scope.onChartClick = function (event) {
@@ -82,8 +92,7 @@ $scope.onChartClick = function (event) {
 
 ```
 
-Using the `tc-chartjs` directive
-================================
+## Using the `tc-chartjs` directive
 
 When using the `tc-chartjs` directive you will need to add an additional attribute to
 say which type of chart should be created.
@@ -91,7 +100,14 @@ say which type of chart should be created.
 Just attach a `chart-type=""` attribute to the canvas element.
 
 ```html
-<canvas tc-chartjs chart-type="doughnut" chart-data="data" chart-options="options" width="350" height="350"></canvas>
+<canvas
+  tc-chartjs
+  chart-type="doughnut"
+  chart-data="myData"
+  chart-options="myOptions"
+  width="350"
+  height="350"
+></canvas>
 ```
 
 Available Types:
@@ -107,8 +123,7 @@ Passing another value to chart-type than the above will try to create a chart of
 that type, which is useful if you have extended Chart.js with custom chart types,
 e.g. through plugins.
 
-Contributing
-============
+## Contributing
 
 - [Open a Pull Request (PR)](https://github.com/carlcraig/tc-angular-chartjs/pull/new/master)
 - Make sure your PR is on a new branch you created from the latest version of master branch
@@ -117,8 +132,7 @@ Contributing
 - Please make sure all unit tests pass, and add new tests for any added features.
 
 
-License
-=======
+## License
 
 tc-angular-chartjs is dual licensed with the Apache-2.0 or MIT license.
 
