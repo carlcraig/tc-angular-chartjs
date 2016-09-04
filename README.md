@@ -36,6 +36,7 @@ You will then have access to the following directives:
 - tc-chartjs
 - tc-chartjs-line
 - tc-chartjs-bar
+- tc-chartjs-horizontalbar
 - tc-chartjs-radar
 - tc-chartjs-polararea
 - tc-chartjs-pie
@@ -99,6 +100,7 @@ Available Types:
 
 - line
 - bar
+- horizontalbar
 - radar
 - polararea
 - pie

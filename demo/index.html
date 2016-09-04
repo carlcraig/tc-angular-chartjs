@@ -72,6 +72,26 @@
 
   <hr>
 
+  <div class="row" ng-controller="BarController">
+    <div class="col-md-12">
+      <h2>Horizontal Bar Chart</h2>
+    </div>
+    <div class="col-md-8">
+      <canvas
+        tc-chartjs-horizontalbar
+        chart-data="chartData"
+        chart-options="chartOptions"
+        chart-click="onChartClick(event)"
+        chart-legend="horizontalBarChart"
+      ></canvas>
+    </div>
+    <div class="col-md-4">
+      <div tc-chartjs-legend chart-legend="horizontalBarChart" class="tc-chart-js-legend"></div>
+    </div>
+  </div>
+
+  <hr>
+
   <div class="row" ng-controller="BubbleController">
     <div class="col-md-12">
       <h2>Bubble Chart</h2>

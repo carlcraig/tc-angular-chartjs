@@ -16,6 +16,7 @@
 TcChartjs.$inject = ["TcChartjsFactory"];
 TcChartjsLine.$inject = ["TcChartjsFactory"];
 TcChartjsBar.$inject = ["TcChartjsFactory"];
+TcChartjsHorizontalBar.$inject = ["TcChartjsFactory"];
 TcChartjsRadar.$inject = ["TcChartjsFactory"];
 TcChartjsPolararea.$inject = ["TcChartjsFactory"];
 TcChartjsPie.$inject = ["TcChartjsFactory"];
@@ -25,6 +26,7 @@ TcChartjsBubble.$inject = ["TcChartjsFactory"];angular
   .directive('tcChartjs', TcChartjs)
   .directive('tcChartjsLine', TcChartjsLine)
   .directive('tcChartjsBar', TcChartjsBar)
+  .directive('tcChartjsHorizontalbar', TcChartjsHorizontalBar)
   .directive('tcChartjsRadar', TcChartjsRadar)
   .directive('tcChartjsPolararea', TcChartjsPolararea)
   .directive('tcChartjsPie', TcChartjsPie)
@@ -43,6 +45,10 @@ function TcChartjsLine(TcChartjsFactory) {
 
 function TcChartjsBar(TcChartjsFactory) {
   return new TcChartjsFactory('bar');
+}
+
+function TcChartjsHorizontalBar(TcChartjsFactory) {
+  return new TcChartjsFactory('horizontalbar');
 }
 
 function TcChartjsRadar(TcChartjsFactory) {
@@ -162,6 +168,8 @@ function TcChartjsFactory() {
       switch (typeLowerCase) {
         case 'polararea':
           return 'polarArea';
+        case 'horizontalbar':
+          return 'horizontalBar';
         default:
           return type;
       }
