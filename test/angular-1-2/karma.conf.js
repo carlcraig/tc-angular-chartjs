@@ -1,7 +1,7 @@
 module.exports = function (config) {
   config.set({
 
-    basePath: '..',
+    basePath: '../..',
     
     frameworks: ['jasmine'],
 
@@ -9,13 +9,13 @@ module.exports = function (config) {
 
     files: [
       'node_modules/chart.js/dist/Chart.js',
-      'bower_components/angular/angular.js',
-      'bower_components/angular-mocks/angular-mocks.js',
+      'test/angular-1-2/node_modules/angular/angular.js',
+      'test/angular-1-2/node_modules/angular-mocks/angular-mocks.js',
       'src/tc-angular-chartjs.js',
       'test/unit/*.spec.js'
     ],
 
-    browsers: ['PhantomJS', 'Chrome', 'Firefox'],
+    browsers: ['PhantomJS'],
 
     logLevel: config.LOG_INFO,
 

@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "name": "angular-1-5",
+  "dependencies": {
+    "angular": "~1.5.8",
+    "angular-mocks": "~1.5.8"
+  }
+}
