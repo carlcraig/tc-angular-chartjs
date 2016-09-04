@@ -107,6 +107,28 @@ Passing another value to chart-type than the above will try to create a chart of
 that type, which is useful if you have extended Chart.js with custom chart types,
 e.g. through plugins.
 
+## Developing
+
+This library is built using `gulp` so ensure you have it installed.
+
+To build the `dist` files run the following:
+
+```bash
+npm run build
+```
+
+To run the tests:
+
+```bash
+npm test
+```
+
+To watch files and rebuild `dist` when changes are made:
+
+```bash
+npm start
+```
+
 ## Contributing
 
 - [Open a Pull Request (PR)](https://github.com/carlcraig/tc-angular-chartjs/pull/new/master)
