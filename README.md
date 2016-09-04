@@ -40,6 +40,7 @@ You will then have access to the following directives:
 - tc-chartjs-polararea
 - tc-chartjs-pie
 - tc-chartjs-doughnut
+- tc-chartjs-bubble
 
 Just place one of these directives on a `canvas` element to create a Chart.js chart.
 
@@ -102,6 +103,7 @@ Available Types:
 - polararea
 - pie
 - doughnut
+- bubble
 
 Passing another value to chart-type than the above will try to create a chart of
 that type, which is useful if you have extended Chart.js with custom chart types,
