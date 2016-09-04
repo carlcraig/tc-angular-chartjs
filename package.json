@@ -1,6 +1,6 @@
 {
   "name": "tc-angular-chartjs",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "AngularJS directives for Chart.js",
   "homepage": "http://carlcraig.github.io/tc-angular-chartjs/",
   "author": "Carl Craig <carlcraig.threeceestudios@gmail.com>",
