@@ -65,6 +65,26 @@ Example Pie Chart
 $scope.myData = {
   // Chart.js data structure goes here
   // e.g. Pie Chart Data Structure http://www.chartjs.org/docs/#doughnut-pie-chart-data-structure
+  labels: [
+    "Red",
+    "Blue",
+    "Yellow"
+  ],
+  datasets: [
+    {
+      data: [300, 50, 100],
+      backgroundColor: [
+        "#FF6384",
+        "#36A2EB",
+        "#FFCE56"
+      ],
+      hoverBackgroundColor: [
+        "#FF6384",
+        "#36A2EB",
+        "#FFCE56"
+      ]
+    }
+  ]
 };
 
 $scope.myOptions =  {
