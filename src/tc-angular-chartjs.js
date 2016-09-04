@@ -97,8 +97,8 @@ function TcChartjsFactory() {
         };
       }
 
-      $scope.$watch('data', function ( value ) {
-        if (value) {
+      $scope.$watch('[data, options]', function (value) {
+        if (value && $scope.data) {
           if (chartObj && typeof chartObj.destroy === 'function') {
             chartObj.destroy();
           }
@@ -117,7 +117,6 @@ function TcChartjsFactory() {
           
           if (showLegend) {
             $scope.legend = chartObj.generateLegend();
-            console.log($scope.legend);
           }
 
           if (autoLegend) {
