@@ -1,177 +1,209 @@
-<!DOCTYPE html>
+<!doctype html>
 <html data-ng-app="app">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>tc-angular-chartjs</title>
-  <!-- HEAD -->
-  <link rel="stylesheet" href="/tc-angular-chartjs/css/prism.css">
-  <link rel="stylesheet" href="/tc-angular-chartjs/css/normalize.css">
-  <link rel="stylesheet" href="/tc-angular-chartjs/css/foundation.min.css">
-  <link rel="stylesheet" href="/tc-angular-chartjs/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/tc-angular-chartjs/css/app.css">
-  <script src="/tc-angular-chartjs/js/vendor/modernizr.js"></script>
-  <!-- END HEAD -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tc-angular-chartjs - AngularJS directives for Chart.js</title>
+  <meta name="description" content="tc-angular-chartjs - AngularJS directives for Chart.js">
+  <link href="http://cdn.muicss.com/mui-0.7.4/css/mui.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <link href="css/index.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/github.min.css">
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-43482784-2', 'auto');
+    ga('send', 'pageview');
+
+  </script>
 </head>
 <body>
-
-<!-- TOP BAR -->
-<div class="contain-to-grid fixed">
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/tc-angular-chartjs/">tc-angular-chartjs</a></h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-    <section class="top-bar-section">
-
-      <ul class="left">
-        <li class="divider"></li>
-        <li class="active"><a href="/tc-angular-chartjs/">Quick Start</a></li>
-        <li class="divider"></li>
-        <li><a href="/tc-angular-chartjs/line/">Line</a></li>
-        <li class="divider"></li>
-        <li><a href="/tc-angular-chartjs/bar/">Bar</a></li>
-        <li class="divider"></li>
-        <li><a href="/tc-angular-chartjs/doughnut/">Doughnut</a></li>
-        <li class="divider"></li>
-        <li><a href="/tc-angular-chartjs/pie/">Pie</a></li>
-        <li class="divider"></li>
-        <li><a href="/tc-angular-chartjs/polararea/">Polar Area</a></li>
-        <li class="divider"></li>
-        <li><a href="/tc-angular-chartjs/radar/">Radar</a></li>
-        <li class="divider"></li>
-        <li><a href="/tc-angular-chartjs/legend/">Legends</a></li>
-        <li class="divider"></li>
-      </ul>
-      <ul class="right">
-        <li class="divider"></li>
-        <li><a href="https://github.com/carlcraig/tc-angular-chartjs" target="_blank"><i class="fa fa-github"></i> Github</a></li>
-      </ul>
-
-    </section>
-  </nav>
-</div>
-<!-- END TOP BAR -->
-
-<!-- CONTENT -->
-<div class="chart-banner" data-ng-controller="HomeCtrl">
-  <canvas tc-chartjs-bar chart-data="data" chart-options="options" style="width:100%;max-height:350px"></canvas>
-</div>
-<div class="row">
-  <div class="large-12 columns">
-    <h1 class="text-center">tc-angular-chartjs</h1>
-    <h5 class="text-center">Angular Directives for <a href="http://www.chartjs.org/" target="_blank">Chart.js</a></h5>
-    <div class="text-center" style="margin-top:25px;">
-      <a href="https://github.com/carlcraig/tc-angular-chartjs/archive/master.zip" class="button round">Download</a>
+  <header class="mui-appbar mui--z1">
+    <div class="mui-container">
+      <table width="100%">
+        <tr class="mui--appbar-height">
+          <td class="mui--text-title title">tc-angular-chartjs</td>
+          <td align="left">
+            <ul class="mui-list--inline mui--text-body2">
+            </ul>
+          </td>
+          <td align="right">
+            <ul class="mui-list--inline mui--text-body2">
+              <li><a href="https://github.com/carlcraig/tc-angular-chartjs" target="_blank"><i class="fa fa-github"></i> Github</a></li>
+            </ul>
+          </td>
+        </tr>
+      </table>
     </div>
-    <hr>
-  </div>
-</div>
-<div class="row">
-  <div class="large-12 columns">
-    <h3>Install</h3>
-    <p>Install via bower:</p>
-    <p>
-<pre class="language-none"><code class="language-none">$ bower install tc-angular-chartjs</code></pre>
-    </p>
-    <p>This will install <strong>Angular.js</strong>, <strong>Chart.js</strong> and <strong>tc-angular-chartjs</strong>. In the <em>bower_components directory</em>.</p>
-    <p>Add the scripts just before your closing <code class="language-markup">&lt;/body&gt;</code></p>
-    <p>
-<pre class="language-markup"><code class="language-markup">&lt;script src="bower_components/Chart.js/Chart.min.js"&gt;&lt;/script&gt;
-&lt;script src="bower_components/angular/angular.min.js"&gt;&lt;/script&gt;
-&lt;script src="bower_components/tc-angular-chartjs/dist/tc-angular-chartjs.min.js"&gt;&lt;/script&gt;
-</code></pre>
-    </p>
-    <p>
-      Alternatively download the source and include <code class="language-none">dist/tc-angular-chartjs.min.js</code> in your scripts.
-    </p>
-    <h3>Basic Usage</h3>
-    <p>To use tc-angular-chartjs, inject <code class="language-javascript">tc.chartjs</code> into your module. You will also need to define options and data on the scope.</p>
-    <p>
-<pre class="language-javascript"><code class="language-javascript">angular
-  .module( 'myModule', [ 'tc.chartjs' ])
-  .controller( 'myController', function( $scope ) {
-
-    // Chart.js Data
-    $scope.data = { /* options */ }
-
-    // Chart.js Options
-    $scope.options = { /* data */ };
-
-  });
-</code></pre>
-    </p>
-    <p>Then use the directives in your html, passing your scope data and options to the <em>chart-data</em> and <em>chart-options</em> attributes</p>
-    <p>
-<pre class="language-markup"><code class="language-markup">&lt;div ng-app="myModule"&gt;
-  &lt;div ng-controller="myController"&gt;
-
-    &lt;canvas tc-chartjs chart-type="line" chart-data="data" chart-options="options"&gt;&lt;/canvas&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-    </p>
-    <h3>Directives:</h3>
-    <ul class="circle">
-      <li><strong>tc-chartjs</strong><ul>
-        <li><em>Using this directive will require an additional attribute <code class="language-none">chart-type</code> to define the type of chart to create</em></li>
-      </ul>
-      </li>
-      <li><strong>tc-chartjs-line</strong></li>
-      <li><strong>tc-chartjs-bar</strong></li>
-      <li><strong>tc-chartjs-doughnut</strong></li>
-      <li><strong>tc-chartjs-polararea</strong></li>
-      <li><strong>tc-chartjs-radar</strong></li>
-    </ul>
-    <hr>
-  </div>
-</div>
-<!-- END CONTENT -->
-
-<!-- FOOTER -->
-<div class="footer">
-  <div class="row">
-    <div class="medium-6 columns">
-      <p class="text-left">Copyright &copy; 2014 Carl Craig</p>
+  </header>
+  <div class="mui--text-center">
+    <div class="feature-chart" data-ng-controller="HomeCtrl">
+      <canvas tc-chartjs-bar chart-data="data" chart-options="options"></canvas>
     </div>
-    <div class="medium-6 columns">
-    <p class="text-right">
-      Dual licensed with the
-      <a href="https://github.com/carlcraig/tc-angular-chartjs/blob/master/LICENSE-APACHE-2.0" target="_blank">Apache-2.0</a>
-      or
-      <a href="https://github.com/carlcraig/tc-angular-chartjs/blob/master/LICENSE-MIT" target="_blank">MIT</a>
-      license
-    </p>
+    <br>
+    <div class="mui--text-display3">tc-angular-chartjs</div>
+    <br>
+    <div class="mui--text-headline">AngularJS directives for Chart.js</div>
+    <br>
+    <p><a href="https://travis-ci.org/carlcraig/tc-angular-chartjs"><img src="https://camo.githubusercontent.com/09856c8380643f052c47bcfea6e94c5d7a26cc68/68747470733a2f2f7472617669732d63692e6f72672f6361726c63726169672f74632d616e67756c61722d63686172746a732e737667" alt="Build Status" data-canonical-src="https://travis-ci.org/carlcraig/tc-angular-chartjs.svg" style="max-width:100%;"></a></p>
   </div>
+
+  <div class="mui-container">
+    <hr>
+
+    <h2>Installation</h2>
+
+    <p>Ensure you have <a href="http://www.chartjs.org/docs/#getting-started-installation">installed Chart.js</a></p>
+
+    <h4>npm</h4>
+    
+    <pre><code class="bash">npm install tc-angular-chartjs --save</code></pre>
+
+    <h4>bower</h4>
+    <p>Bower support has been dropped but you can still use tc-angular-chartjs with Bower using <a href="https://www.npmjs.com/package/bower-npm-resolver">bower-npm-resolver</a>.</p>
+
+    <h4>download</h4>
+    <p>You can download the source archive from the github <a href="https://github.com/carlcraig/tc-angular-chartjs/releases">releases</a> page.</p>
+
+    <p>Just include <code>dist/tc-angular-chartjs.js</code> into your project.</p>
+
+    <hr>
+    <h2>Basic Usage</h2>
+    <p>Add <code>tc.chartjs</code> to your modules dependencies e.g.</p>
+
+    <pre><code class="javascript">angular.module( &#x27;app&#x27;, [&#x27;tc.chartjs&#x27;]);</code></pre>
+
+    <p>You will then have access to the following directives:</p>
+
+    <ul>
+      <li>tc-chartjs</li>
+      <li>tc-chartjs-line</li>
+      <li>tc-chartjs-bar</li>
+      <li>tc-chartjs-horizontalbar</li>
+      <li>tc-chartjs-radar</li>
+      <li>tc-chartjs-polararea</li>
+      <li>tc-chartjs-pie</li>
+      <li>tc-chartjs-doughnut</li>
+      <li>tc-chartjs-bubble</li>
+    </ul>
+
+    <p>Just place one of these directives on a <code>canvas</code> element to create a Chart.js chart.</p>
+
+    <p>You will also want to give the chart some <code>data</code> and <code>options</code>. These can be provided via the <code>chart-options</code> and <code>chart-data</code> attributes.</p>
+
+    <p>For data structures and options please refer to <a href="http://www.chartjs.org/docs/">Chart.js documentation</a></p>
+
+    <p>You can also handle chart clicks via the <code>chart-click</code> attribute.</p>
+
+    <h3>Example Pie Chart</h3>
+
+    <div data-ng-controller="DemoCtrl">
+      <canvas tc-chartjs-pie chart-data="myData" chart-options="myOptions" chart-click="onChartClick(event)"></canvas>
+    </div>
+
+    <pre><code class="html">&#x3C;canvas
+tc-chartjs-pie
+chart-data=&#x22;myData&#x22;
+chart-options=&#x22;myOptions&#x22;
+chart-click=&#x22;onChartClick(event)&#x22;
+&#x3E;&#x3C;/canvas&#x3E;</code></pre>
+
+    <pre><code class="javascript">$scope.myData = {
+  // Chart.js data structure goes here
+  // e.g. Pie Chart Data Structure http://www.chartjs.org/docs/#doughnut-pie-chart-data-structure
+  labels: [
+    "Red",
+    "Blue",
+    "Yellow"
+  ],
+  datasets: [
+    {
+      data: [300, 50, 100],
+      backgroundColor: [
+        "#FF6384",
+        "#36A2EB",
+        "#FFCE56"
+      ],
+      hoverBackgroundColor: [
+        "#FF6384",
+        "#36A2EB",
+        "#FFCE56"
+      ]
+    }
+  ]
+};
+
+$scope.myOptions =  {
+  // Chart.js options go here
+  // e.g. Pie Chart Options http://www.chartjs.org/docs/#doughnut-pie-chart-chart-options
+};
+
+$scope.onChartClick = function (event) {
+  console.log(event);
+};</code></pre>
+
+
+    <p>For more examples please view the <code>demo</code> folder.</p>
+
+    <hr>
+    <h2>Using the <code>tc-chartjs</code> directive</h2>
+
+    <p>When using the <code>tc-chartjs</code> directive you will need to add an additional attribute to
+say which type of chart should be created.</p>
+
+<p>Just attach a <code>chart-type=""</code> attribute to the canvas element.</p>
+
+    <pre><code class="html">&#x3C;canvas
+tc-chartjs
+chart-type=&#x22;doughnut&#x22;
+chart-data=&#x22;myData&#x22;
+chart-options=&#x22;myOptions&#x22;
+chart-click=&#x22;onChartClick(event)&#x22;
+&#x3E;&#x3C;/canvas&#x3E;</code></pre>
+
+    <p>Available Types:</p>
+
+    <ul>
+      <li>line</li>
+      <li>bar</li>
+      <li>horizontalbar</li>
+      <li>radar</li>
+      <li>polararea</li>
+      <li>pie</li>
+      <li>doughnut</li>
+      <li>bubble</li>
+    </ul>
+
+    <p>Passing another value to chart-type than the above will try to create a chart of that type, which is useful if you have extended Chart.js with custom chart types, e.g. through plugins.</p>
+
+    <hr>
+    <h2>Developing</h2>
+
+    <p>This library is built using <code>gulp</code> so ensure you have it installed.</p>
+
+    <p>To build the <code>dist</code> files run the following: <code>npm run build</code></p>
+
+    <p>To run the tests: <code>npm run test</code></p>
+
+    <p>To watch files and rebuild <code>dist</code> when changes are made: <code>npm start</code></p>
+
+    <hr>
+
+    <h2>License</h2>
+    <p>tc-angular-chartjs is dual licensed with the Apache-2.0 or MIT license.</p>
+    <p>See LICENSE-APACHE-2.0 and LICENSE-MIT for more details.</p>
   </div>
-</div>
-<!-- ENDFOOTER -->
 
-<!-- SCRIPTS -->
-<script src="/tc-angular-chartjs/js/vendor/prism.js"></script>
-<script src="/tc-angular-chartjs/js/vendor/jquery.js"></script>
-<script src="/tc-angular-chartjs/js/vendor/fastclick.js"></script>
-<script src="/tc-angular-chartjs/js/vendor/foundation.min.js"></script>
-<script src="/tc-angular-chartjs/js/vendor/angular.js"></script>
-<script src="/tc-angular-chartjs/js/vendor/Chart.js"></script>
-<script src="/tc-angular-chartjs/js/vendor/tc-angular-chartjs.min.js"></script>
-<script src="/tc-angular-chartjs/js/app.js"></script>
-<script>
-  $(document).foundation();
-</script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-43482784-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
-<!-- END SCRIPTS -->
+  <script src="http://cdn.muicss.com/mui-0.7.4/js/mui.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="js/vendor/Chart.min.js"></script>
+  <script src="js/vendor/angular.min.js"></script>
+  <script src="js/vendor/tc-angular-chartjs.min.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>

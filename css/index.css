@@ -1,0 +1,63 @@
+html,
+body {
+  height: 100%;
+}
+
+html,
+body,
+input,
+textarea,
+button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.mui-appbar {
+  background-color: #008cba;
+}
+
+header ul.mui-list--inline {
+  margin-bottom: 0;
+}
+
+header a {
+  color: white;
+}
+
+header a:hover {
+  color: white;
+}
+
+.feature-chart {
+  background: rgba(0, 140, 186, 0.3);
+}
+
+.feature-chart canvas {
+  max-height: 350px;
+}
+
+.title {
+  width: 200px;
+}
+
+.panel {}
+
+.panel--top {
+  margin-top: 20px;
+}
+
+.panel__heading {
+  margin-top: 0;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+}
