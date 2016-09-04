@@ -46,6 +46,8 @@ Just place one of these directives on a `canvas` element to create a Chart.js ch
 
 You will also want to give the chart some `data` and `options`. These can be provided via the `chart-options` and `chart-data` attributes.
 
+For data structures and options please refer to [Chart.js documentation](http://www.chartjs.org/docs/)
+
 You can also handle chart clicks via the `chart-click` attribute.
 
 Example Pie Chart
@@ -56,8 +58,6 @@ Example Pie Chart
   chart-data="myData"
   chart-options="myOptions"
   chart-click="onChartClick(event)"
-  width="350"
-  height="350"
 ></canvas>
 ```
 ```javascript
@@ -77,6 +77,8 @@ $scope.onChartClick = function (event) {
 
 ```
 
+For more examples please view the `demo` folder.
+
 ## Using the `tc-chartjs` directive
 
 When using the `tc-chartjs` directive you will need to add an additional attribute to
@@ -90,8 +92,6 @@ Just attach a `chart-type=""` attribute to the canvas element.
   chart-type="doughnut"
   chart-data="myData"
   chart-options="myOptions"
-  width="350"
-  height="350"
 ></canvas>
 ```
 
