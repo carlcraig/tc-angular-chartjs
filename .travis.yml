@@ -6,3 +6,4 @@ before_install:
   - npm install -g npm@3.10.3
 install:
   - npm install
+  - npm run test:install
