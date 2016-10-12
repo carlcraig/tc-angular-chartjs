@@ -33,7 +33,7 @@
     "LICENSE-APACHE-2.0"
   ],
   "scripts": {
-    "postinstall": "cd test/angular-1-2 && npm install && cd ../angular-1-5 && npm install",
+    "test:install": "cd test/angular-1-2 && npm install && cd ../angular-1-5 && npm install",
     "test": "./node_modules/.bin/gulp test",
     "build": "./node_modules/.bin/gulp build",
     "start": "./node_modules/.bin/gulp watch"
