@@ -45,9 +45,9 @@ You will then have access to the following directives:
 
 Just place one of these directives on a `canvas` element to create a Chart.js chart.
 
-You will also want to give the chart some `data` and `options`. These can be provided via the `chart-options` and `chart-data` attributes.
+You will also want to give the chart some `data`, `options` and `plugins`. These can be provided via the `chart-options`, `chart-data` and `chart-plugins` attributes.
 
-For data structures and options please refer to [Chart.js documentation](http://www.chartjs.org/docs/)
+For data structures, options and inline plugins please refer to [Chart.js documentation](http://www.chartjs.org/docs/)
 
 You can also handle chart clicks via the `chart-click` attribute.
 
@@ -58,6 +58,7 @@ Example Pie Chart
   tc-chartjs-pie
   chart-data="myData"
   chart-options="myOptions"
+  chart-plugins="myPlugins"
   chart-click="onChartClick(event)"
 ></canvas>
 ```
@@ -91,6 +92,11 @@ $scope.myOptions =  {
   // Chart.js options go here
   // e.g. Pie Chart Options http://www.chartjs.org/docs/#doughnut-pie-chart-chart-options
 };
+
+$scope.myPlugins = [{
+  // Chart.js inline plugins go here
+  // e.g. http://www.chartjs.org/docs/latest/developers/plugins.html#using-plugins
+}];
 
 $scope.onChartClick = function (event) {
   console.log(event);

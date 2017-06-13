@@ -1,6 +1,6 @@
 /**
  * tc-angular-chartjs - http://carlcraig.github.io/tc-angular-chartjs/
- * Copyright (c) 2016 Carl Craig
+ * Copyright (c) 2017 Carl Craig
  * Dual licensed with the Apache-2.0 or MIT license.
  */
 ;(function(root, factory) {
@@ -80,6 +80,7 @@ function TcChartjsFactory() {
       scope: {
         data: '=chartData',
         options: '=chartOptions',
+        plugins: '=chartPlugins',
         type: '@chartType',
         legend: '=?chartLegend',
         chart: '=?chart',
@@ -125,7 +126,7 @@ function TcChartjsFactory() {
         };
       }
 
-      $scope.$watch('[data, options]', function (value) {
+      $scope.$watch('[data, options, plugins]', function (value) {
         if (value && $scope.data) {
           if (chartObj && typeof chartObj.destroy === 'function') {
             chartObj.destroy();
@@ -140,7 +141,8 @@ function TcChartjsFactory() {
           chartObj = new Chart(ctx, {
             type: type,
             data: angular.copy($scope.data),
-            options: $scope.options
+            options: $scope.options,
+            plugins: $scope.plugins
           });
           
           if (showLegend) {
